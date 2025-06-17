@@ -10,6 +10,15 @@ const Hero = () => {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-green-50 min-h-screen flex items-center">
+      {/* Background car image */}
+      <div className="absolute inset-0 opacity-10">
+        <img
+          src="https://images.pexels.com/photos/3752194/pexels-photo-3752194.jpeg"
+          alt="Luxury car background"
+          className="w-full h-full object-cover"
+        />
+      </div>
+
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-br from-brand-500/5 via-transparent to-green-500/5" />
       <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-brand-400/20 to-green-400/20 rounded-full blur-3xl animate-pulse-slow" />
@@ -119,19 +128,21 @@ const Hero = () => {
               <div className="relative bg-gradient-to-br from-white to-gray-100 rounded-3xl p-8 shadow-2xl">
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-500/10 to-green-500/10 rounded-3xl" />
 
-                {/* Product bottle placeholder - replace with actual product image */}
-                <div className="relative z-10 bg-gradient-to-br from-brand-500 to-green-500 rounded-2xl h-80 flex items-center justify-center text-white shadow-lg">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto">
-                      <Zap className="w-8 h-8" />
-                    </div>
+                {/* Product bottles image */}
+                <div className="relative z-10 rounded-2xl h-80 overflow-hidden shadow-lg">
+                  <img
+                    src="https://images.pexels.com/photos/5217901/pexels-photo-5217901.jpeg"
+                    alt="CleanMax Pro Catalytic Converter Cleaner Bottles"
+                    className="w-full h-full object-cover rounded-2xl"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-600/80 via-transparent to-transparent rounded-2xl" />
+                  <div className="absolute bottom-4 left-4 text-white">
                     <div className="text-xl font-bold">CleanMax Pro</div>
                     <div className="text-sm opacity-90">
-                      Catalytic Converter
+                      Premium Catalytic Converter Cleaner
                     </div>
-                    <div className="text-sm opacity-90">Cleaner</div>
-                    <div className="mt-4 text-xs bg-white/20 rounded-full px-3 py-1">
-                      120ml
+                    <div className="mt-2 text-xs bg-white/20 rounded-full px-3 py-1 inline-block">
+                      120ml Professional Formula
                     </div>
                   </div>
                 </div>

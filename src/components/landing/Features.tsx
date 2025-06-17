@@ -122,31 +122,70 @@ const Features = () => {
           ))}
         </div>
 
-        {/* Stats Section */}
-        <div className="mt-20 bg-gradient-to-r from-brand-600 to-green-600 rounded-3xl p-8 md:p-12 text-white">
-          <div className="text-center mb-8">
-            <h3 className="text-3xl font-bold mb-2">Proven Results</h3>
-            <p className="text-brand-100">
-              Real data from thousands of satisfied customers
-            </p>
+        {/* Visual Benefits Section */}
+        <div className="mt-20 grid lg:grid-cols-2 gap-12 items-center">
+          {/* Engine Image */}
+          <div className="relative">
+            <img
+              src="https://images.pexels.com/photos/8478223/pexels-photo-8478223.jpeg"
+              alt="Professional mechanic working on car engine"
+              className="rounded-2xl shadow-2xl w-full h-80 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent rounded-2xl" />
+            <div className="absolute bottom-6 left-6 text-white">
+              <h3 className="text-xl font-bold mb-2">Professional Results</h3>
+              <p className="text-sm text-gray-200">
+                Deep engine cleaning without disassembly
+              </p>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold mb-2">50%</div>
-              <div className="text-brand-100">Emission Reduction</div>
+          {/* Stats Section */}
+          <div className="bg-gradient-to-r from-brand-600 to-green-600 rounded-3xl p-8 text-white">
+            <div className="text-center mb-8">
+              <h3 className="text-3xl font-bold mb-2">Proven Results</h3>
+              <p className="text-brand-100">
+                Real data from thousands of satisfied customers
+              </p>
             </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">25%</div>
-              <div className="text-brand-100">Fuel Savings</div>
+
+            <div className="grid grid-cols-2 gap-6 text-center">
+              <div>
+                <div className="text-4xl font-bold mb-2">50%</div>
+                <div className="text-brand-100">Emission Reduction</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold mb-2">25%</div>
+                <div className="text-brand-100">Fuel Savings</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold mb-2">15min</div>
+                <div className="text-brand-100">Application Time</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold mb-2">100%</div>
+                <div className="text-brand-100">Satisfaction Rate</div>
+              </div>
             </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">15min</div>
-              <div className="text-brand-100">Application Time</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">100%</div>
-              <div className="text-brand-100">Satisfaction Rate</div>
+          </div>
+        </div>
+
+        {/* Environmental Impact Section */}
+        <div className="mt-20 relative">
+          <img
+            src="https://images.pexels.com/photos/4498091/pexels-photo-4498091.jpeg"
+            alt="Environmental protection and recycling concept"
+            className="w-full h-64 object-cover rounded-2xl shadow-xl"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-green-900/80 to-blue-900/80 rounded-2xl flex items-center justify-center">
+            <div className="text-center text-white">
+              <h3 className="text-3xl font-bold mb-4">
+                Protect Our Environment
+              </h3>
+              <p className="text-xl text-green-100 max-w-2xl">
+                Reduce harmful emissions and contribute to a cleaner planet with
+                every drive
+              </p>
             </div>
           </div>
         </div>

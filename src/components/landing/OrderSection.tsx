@@ -254,7 +254,7 @@ const OrderSection = () => {
                         Call for Inquiries
                       </div>
                       <div className="text-lg font-bold text-white">
-                        +234 812 345 6789
+                        07030151874
                       </div>
                       <div className="text-xs text-gray-400">
                         Support & Questions Only

@@ -25,9 +25,7 @@ const Index = () => {
                 thousands of satisfied customers.
               </p>
               <div className="mt-6 space-y-2">
-                <div className="text-sm text-gray-400">
-                  📞 +234 812 345 6789
-                </div>
+                <div className="text-sm text-gray-400">📞 07030151874</div>
                 <div className="text-sm text-gray-400">
                   📧 info@cleanmaxpro.ng
                 </div>

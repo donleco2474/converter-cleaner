@@ -115,9 +115,11 @@ const Testimonials = () => {
 
                 {/* Customer info */}
                 <div className="flex items-center space-x-3 pt-4 border-t border-gray-100">
-                  <div className="w-12 h-12 bg-gradient-to-br from-brand-500 to-green-500 rounded-full flex items-center justify-center text-white font-bold">
-                    {testimonial.avatar}
-                  </div>
+                  <img
+                    src="https://images.pexels.com/photos/6958416/pexels-photo-6958416.jpeg"
+                    alt={`Happy customer ${testimonial.name}`}
+                    className="w-12 h-12 rounded-full object-cover shadow-md"
+                  />
                   <div>
                     <div className="font-semibold text-gray-900">
                       {testimonial.name}
@@ -131,6 +133,23 @@ const Testimonials = () => {
               </div>
             </Card>
           ))}
+        </div>
+
+        {/* Fuel Savings Visual */}
+        <div className="mt-16 relative">
+          <img
+            src="https://images.pexels.com/photos/20500734/pexels-photo-20500734.jpeg"
+            alt="Fuel pump showing fuel efficiency savings"
+            className="w-full h-48 object-cover rounded-2xl shadow-xl"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-900/80 to-green-900/80 rounded-2xl flex items-center justify-center">
+            <div className="text-center text-white">
+              <h3 className="text-2xl font-bold mb-2">Save Money Every Mile</h3>
+              <p className="text-brand-100">
+                Customers report up to 25% improvement in fuel efficiency
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Trust indicators */}
