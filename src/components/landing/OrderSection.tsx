@@ -27,13 +27,6 @@ const OrderSection = () => {
     "Prevents costly repairs",
   ];
 
-  const handleWhatsAppOrder = (packageType: string, price: string) => {
-    const message = encodeURIComponent(
-      `Hi! I want to order CleanMax Pro Catalytic Converter Cleaner - ${packageType} for ${price}. Please confirm my order and delivery details.`,
-    );
-    window.open(`https://wa.me/2348123456789?text=${message}`, "_blank");
-  };
-
   const handleCallOrder = () => {
     window.open("tel:+2348123456789", "_self");
   };
@@ -228,126 +221,32 @@ const OrderSection = () => {
             <div className="text-center">
               <h3 className="text-3xl font-bold mb-4">Ready to Order?</h3>
               <p className="text-gray-300 text-lg mb-6">
-                Choose your package and preferred ordering method below
+                Choose your preferred ordering method below
               </p>
             </div>
 
-            {/* Package Quick Order Buttons */}
+            {/* Order Options */}
             <div className="space-y-4">
-              <h4 className="text-xl font-bold text-center mb-4">
-                Quick Order via WhatsApp
-              </h4>
-
-              {/* 2 Bottles WhatsApp */}
+              {/* Primary Form Option */}
               <Card
-                className="bg-gradient-to-r from-brand-600 to-blue-700 text-white p-4 hover:shadow-xl transition-all cursor-pointer group"
-                onClick={() =>
-                  handleWhatsAppOrder("Basic Package (2 bottles)", "₦20,500")
-                }
+                className="bg-gradient-to-r from-brand-600 to-green-600 text-white p-6 hover:shadow-xl transition-all cursor-pointer group"
+                onClick={() => setShowForm(true)}
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className="bg-white/20 rounded-full p-2">
-                      <Package className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <div className="font-bold">Basic Package</div>
-                      <div className="text-sm text-blue-100">2 bottles</div>
-                    </div>
+                <div className="flex items-center justify-center space-x-4">
+                  <div className="bg-white/20 rounded-full p-3 group-hover:scale-110 transition-transform">
+                    <FileText className="w-8 h-8" />
                   </div>
-                  <div className="text-right">
-                    <div className="text-xl font-bold">₦20,500</div>
-                    <div className="text-xs text-blue-100">
-                      Order via WhatsApp
+                  <div className="text-center">
+                    <div className="text-xl font-bold">Fill Order Form</div>
+                    <div className="text-sm text-brand-100">
+                      Secure & Convenient Ordering
                     </div>
                   </div>
                 </div>
               </Card>
-
-              {/* 4 Bottles WhatsApp */}
-              <Card
-                className="bg-gradient-to-r from-green-600 to-emerald-700 text-white p-4 hover:shadow-xl transition-all cursor-pointer group border-2 border-yellow-400"
-                onClick={() =>
-                  handleWhatsAppOrder("Complete Package (4 bottles)", "₦37,000")
-                }
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className="bg-white/20 rounded-full p-2">
-                      <Package className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <div className="font-bold flex items-center">
-                        Complete Package
-                        <Badge className="bg-yellow-400 text-yellow-900 ml-2 text-xs">
-                          POPULAR
-                        </Badge>
-                      </div>
-                      <div className="text-sm text-green-100">
-                        4 bottles - Save ₦4,000
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-xl font-bold">₦37,000</div>
-                    <div className="text-xs text-green-100">
-                      Order via WhatsApp
-                    </div>
-                  </div>
-                </div>
-              </Card>
-
-              {/* 6 Bottles WhatsApp */}
-              <Card
-                className="bg-gradient-to-r from-purple-600 to-pink-700 text-white p-4 hover:shadow-xl transition-all cursor-pointer group"
-                onClick={() =>
-                  handleWhatsAppOrder("Premium Package (6 bottles)", "₦55,500")
-                }
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className="bg-white/20 rounded-full p-2">
-                      <Package className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <div className="font-bold">Premium Package</div>
-                      <div className="text-sm text-purple-100">
-                        6 bottles - Save ₦6,000
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-xl font-bold">₦55,500</div>
-                    <div className="text-xs text-purple-100">
-                      Order via WhatsApp
-                    </div>
-                  </div>
-                </div>
-              </Card>
-
-              {/* Form Option */}
-              <div className="text-center pt-4">
-                <p className="text-gray-300 mb-3">
-                  Or fill out our secure order form
-                </p>
-                <Card
-                  className="bg-gradient-to-r from-purple-600 to-indigo-700 text-white p-4 hover:shadow-xl transition-all cursor-pointer group"
-                  onClick={() => setShowForm(true)}
-                >
-                  <div className="flex items-center justify-center space-x-3">
-                    <FileText className="w-6 h-6" />
-                    <div>
-                      <div className="font-bold">Fill Order Form</div>
-                      <div className="text-sm text-purple-100">
-                        Secure & Convenient
-                      </div>
-                    </div>
-                  </div>
-                </Card>
-              </div>
 
               {/* Alternative: Call to Order */}
-              <div className="text-center pt-4">
+              <div className="text-center pt-6">
                 <p className="text-gray-300 mb-3">
                   Prefer to speak with us directly?
                 </p>

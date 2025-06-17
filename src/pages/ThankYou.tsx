@@ -16,13 +16,6 @@ const ThankYou = () => {
   const location = useLocation();
   const orderData = location.state || {};
 
-  const handleWhatsAppContact = () => {
-    const message = encodeURIComponent(
-      `Hi! I just placed an order for CleanMax Pro. My name is ${orderData.customerName || "Customer"}. Please confirm my order status.`,
-    );
-    window.open(`https://wa.me/2347030151874?text=${message}`, "_blank");
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 flex items-center justify-center p-4">
       <div className="max-w-2xl w-full space-y-8">
@@ -144,32 +137,17 @@ const ThankYou = () => {
               Need Help or Have Questions?
             </h3>
 
-            <div className="grid md:grid-cols-2 gap-4">
-              {/* WhatsApp Contact */}
-              <Button
-                onClick={handleWhatsAppContact}
-                className="bg-green-600 hover:bg-green-700 text-white p-4 h-auto"
-              >
-                <div className="flex items-center space-x-3">
-                  <MessageCircle className="w-6 h-6" />
-                  <div className="text-left">
-                    <div className="font-medium">WhatsApp Support</div>
-                    <div className="text-sm text-green-100">07030151874</div>
-                  </div>
-                </div>
-              </Button>
-
+            <div className="max-w-md mx-auto">
               {/* Phone Contact */}
               <Button
                 onClick={() => window.open("tel:+2347030151874", "_self")}
-                variant="outline"
-                className="border-2 border-brand-200 hover:bg-brand-50 p-4 h-auto"
+                className="w-full bg-brand-600 hover:bg-brand-700 text-white p-6 h-auto"
               >
-                <div className="flex items-center space-x-3">
-                  <Phone className="w-6 h-6 text-brand-600" />
-                  <div className="text-left">
-                    <div className="font-medium text-gray-900">Call Direct</div>
-                    <div className="text-sm text-gray-600">07030151874</div>
+                <div className="flex items-center justify-center space-x-3">
+                  <Phone className="w-6 h-6" />
+                  <div className="text-center">
+                    <div className="font-medium text-lg">Call Us Now</div>
+                    <div className="text-sm text-brand-100">07030151874</div>
                   </div>
                 </div>
               </Button>
