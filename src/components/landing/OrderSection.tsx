@@ -22,9 +22,9 @@ const OrderSection = () => {
     "Prevents costly repairs",
   ];
 
-  const handleWhatsAppOrder = () => {
+  const handleWhatsAppOrder = (packageType: string, price: string) => {
     const message = encodeURIComponent(
-      "Hi! I want to order CleanMax Pro Catalytic Converter Cleaner (2 bottles for ₦20,500). Please confirm my order and delivery details.",
+      `Hi! I want to order CleanMax Pro Catalytic Converter Cleaner - ${packageType} for ${price}. Please confirm my order and delivery details.`,
     );
     window.open(`https://wa.me/2348123456789?text=${message}`, "_blank");
   };
@@ -61,134 +61,283 @@ const OrderSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          {/* Product Package */}
-          <Card className="bg-white text-gray-900 p-8 shadow-2xl">
-            <div className="space-y-6">
+        {/* Pricing Packages */}
+        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto mb-12">
+          {/* 2 Bottles Package */}
+          <Card className="bg-white text-gray-900 p-6 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-brand-200">
+            <div className="space-y-4">
               <div className="text-center">
-                <div className="bg-gradient-to-br from-brand-500 to-green-500 rounded-2xl p-6 inline-block mb-4">
-                  <Package className="w-12 h-12 text-white" />
+                <Badge variant="outline" className="mb-3">
+                  Starter Pack
+                </Badge>
+                <div className="bg-gradient-to-br from-brand-500 to-green-500 rounded-xl p-4 inline-block mb-3">
+                  <Package className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold mb-2">Premium Package</h3>
-                <p className="text-gray-600">
-                  Everything you need for optimal results
+                <h3 className="text-xl font-bold mb-2">Basic Treatment</h3>
+                <p className="text-gray-600 text-sm">
+                  Perfect for single vehicle maintenance
                 </p>
               </div>
 
-              <div className="space-y-4">
-                <div className="flex items-center justify-between border-b border-gray-200 pb-2">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between text-sm border-b border-gray-200 pb-2">
                   <span className="font-medium">CleanMax Pro (120ml)</span>
                   <span className="text-gray-600">2 Bottles</span>
                 </div>
-                <div className="flex items-center justify-between border-b border-gray-200 pb-2">
-                  <span className="font-medium">Free Nationwide Delivery</span>
-                  <CheckCircle className="w-5 h-5 text-green-500" />
-                </div>
-                <div className="flex items-center justify-between border-b border-gray-200 pb-2">
-                  <span className="font-medium">Payment on Delivery</span>
-                  <CheckCircle className="w-5 h-5 text-green-500" />
-                </div>
-                <div className="flex items-center justify-between border-b border-gray-200 pb-2">
-                  <span className="font-medium">Usage Instructions</span>
-                  <CheckCircle className="w-5 h-5 text-green-500" />
+                <div className="flex items-center justify-between text-sm">
+                  <span className="font-medium">Free Delivery</span>
+                  <CheckCircle className="w-4 h-4 text-green-500" />
                 </div>
               </div>
 
-              <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-4">
+              <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-3">
                 <div className="text-center">
-                  <div className="text-sm text-gray-600 line-through">
-                    Regular Price: ₦25,000
-                  </div>
-                  <div className="text-3xl font-bold text-green-600">
+                  <div className="text-lg font-bold text-green-600">
                     ₦20,500
                   </div>
-                  <div className="text-sm text-gray-600">
-                    Special Launch Price
-                  </div>
-                  <Badge
-                    variant="secondary"
-                    className="bg-red-100 text-red-800 mt-2"
-                  >
-                    Save ₦4,500!
-                  </Badge>
+                  <div className="text-xs text-gray-600">Special Price</div>
                 </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                {benefits.map((benefit, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center space-x-2 text-sm"
-                  >
-                    <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                    <span className="text-gray-700">{benefit}</span>
-                  </div>
-                ))}
               </div>
             </div>
           </Card>
 
-          {/* Order Options */}
-          <div className="space-y-8">
-            <div className="text-center lg:text-left">
-              <h3 className="text-3xl font-bold mb-4">Ready to Order?</h3>
-              <p className="text-gray-300 text-lg">
-                Choose your preferred ordering method below. We offer multiple
-                convenient ways to place your order with secure payment options.
-              </p>
+          {/* 4 Bottles Package - Most Popular */}
+          <Card className="bg-gradient-to-br from-brand-500 to-green-500 text-white p-6 shadow-2xl transform scale-105 relative border-2 border-yellow-400">
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+              <Badge className="bg-yellow-400 text-yellow-900 font-bold px-4 py-1">
+                <Star className="w-3 h-3 mr-1" />
+                MOST POPULAR
+              </Badge>
             </div>
 
             <div className="space-y-4">
-              {/* WhatsApp Order */}
-              <Card
-                className="bg-gradient-to-r from-green-600 to-green-700 text-white p-6 hover:shadow-xl transition-all cursor-pointer group"
-                onClick={handleWhatsAppOrder}
-              >
-                <div className="flex items-center space-x-4">
-                  <div className="bg-white/20 rounded-full p-3 group-hover:scale-110 transition-transform">
-                    <Phone className="w-8 h-8" />
+              <div className="text-center">
+                <Badge
+                  variant="secondary"
+                  className="bg-white/20 text-white mb-3"
+                >
+                  Best Value
+                </Badge>
+                <div className="bg-white/20 rounded-xl p-4 inline-block mb-3">
+                  <Package className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Complete Treatment</h3>
+                <p className="text-blue-100 text-sm">
+                  2 treatment plans for optimal results
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <div className="flex items-center justify-between text-sm border-b border-white/20 pb-2">
+                  <span className="font-medium">CleanMax Pro (120ml)</span>
+                  <span className="text-blue-100">4 Bottles</span>
+                </div>
+                <div className="flex items-center justify-between text-sm">
+                  <span className="font-medium">Free Priority Delivery</span>
+                  <CheckCircle className="w-4 h-4 text-green-300" />
+                </div>
+              </div>
+
+              <div className="bg-white/20 rounded-lg p-3">
+                <div className="text-center">
+                  <div className="text-sm line-through text-blue-200">
+                    ₦41,000
                   </div>
-                  <div className="flex-1">
-                    <h4 className="text-xl font-bold mb-1">
-                      Order via WhatsApp
-                    </h4>
-                    <p className="text-green-100">
-                      Quick and easy ordering process
-                    </p>
+                  <div className="text-2xl font-bold">₦37,000</div>
+                  <div className="text-xs text-blue-100">Save ₦4,000!</div>
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          {/* 6 Bottles Package */}
+          <Card className="bg-white text-gray-900 p-6 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-transparent hover:border-green-200">
+            <div className="space-y-4">
+              <div className="text-center">
+                <Badge
+                  variant="outline"
+                  className="mb-3 border-green-500 text-green-700"
+                >
+                  Maximum Savings
+                </Badge>
+                <div className="bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl p-4 inline-block mb-3">
+                  <Package className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Premium Treatment</h3>
+                <p className="text-gray-600 text-sm">
+                  3 treatment plans for multiple vehicles
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <div className="flex items-center justify-between text-sm border-b border-gray-200 pb-2">
+                  <span className="font-medium">CleanMax Pro (120ml)</span>
+                  <span className="text-gray-600">6 Bottles</span>
+                </div>
+                <div className="flex items-center justify-between text-sm">
+                  <span className="font-medium">Free Express Delivery</span>
+                  <CheckCircle className="w-4 h-4 text-green-500" />
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-3">
+                <div className="text-center">
+                  <div className="text-sm line-through text-gray-500">
+                    ₦61,500
+                  </div>
+                  <div className="text-lg font-bold text-green-600">
+                    ₦55,500
+                  </div>
+                  <div className="text-xs text-gray-600">Save ₦6,000!</div>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+
+        {/* Benefits Section */}
+        <div className="max-w-4xl mx-auto mb-12">
+          <Card className="bg-gradient-to-r from-gray-50 to-blue-50 p-6">
+            <h4 className="text-lg font-bold text-gray-900 mb-4 text-center">
+              Every Package Includes:
+            </h4>
+            <div className="grid md:grid-cols-3 gap-4">
+              {benefits.map((benefit, index) => (
+                <div
+                  key={index}
+                  className="flex items-center space-x-2 text-sm"
+                >
+                  <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                  <span className="text-gray-700">{benefit}</span>
+                </div>
+              ))}
+            </div>
+          </Card>
+        </div>
+
+        <div className="grid lg:grid-cols-1 gap-12 items-center max-w-4xl mx-auto">
+          {/* Order section will be placed here */}
+
+          {/* Order Options */}
+          <div className="space-y-8">
+            <div className="text-center">
+              <h3 className="text-3xl font-bold mb-4">Ready to Order?</h3>
+              <p className="text-gray-300 text-lg mb-6">
+                Choose your package and preferred ordering method below
+              </p>
+            </div>
+
+            {/* Package Quick Order Buttons */}
+            <div className="space-y-4">
+              <h4 className="text-xl font-bold text-center mb-4">
+                Quick Order via WhatsApp
+              </h4>
+
+              {/* 2 Bottles WhatsApp */}
+              <Card
+                className="bg-gradient-to-r from-brand-600 to-blue-700 text-white p-4 hover:shadow-xl transition-all cursor-pointer group"
+                onClick={() =>
+                  handleWhatsAppOrder("Basic Package (2 bottles)", "₦20,500")
+                }
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <div className="bg-white/20 rounded-full p-2">
+                      <Package className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="font-bold">Basic Package</div>
+                      <div className="text-sm text-blue-100">2 bottles</div>
+                    </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-sm opacity-90">Most Popular</div>
-                    <Badge
-                      variant="secondary"
-                      className="bg-white/20 text-white"
-                    >
-                      <Star className="w-3 h-3 mr-1" />
-                      Instant
-                    </Badge>
+                    <div className="text-xl font-bold">₦20,500</div>
+                    <div className="text-xs text-blue-100">
+                      Order via WhatsApp
+                    </div>
                   </div>
                 </div>
               </Card>
 
-              {/* Phone Order */}
+              {/* 4 Bottles WhatsApp */}
               <Card
-                className="bg-gradient-to-r from-brand-600 to-blue-700 text-white p-6 hover:shadow-xl transition-all cursor-pointer group"
-                onClick={handleCallOrder}
+                className="bg-gradient-to-r from-green-600 to-emerald-700 text-white p-4 hover:shadow-xl transition-all cursor-pointer group border-2 border-yellow-400"
+                onClick={() =>
+                  handleWhatsAppOrder("Complete Package (4 bottles)", "₦37,000")
+                }
               >
-                <div className="flex items-center space-x-4">
-                  <div className="bg-white/20 rounded-full p-3 group-hover:scale-110 transition-transform">
-                    <Phone className="w-8 h-8" />
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <div className="bg-white/20 rounded-full p-2">
+                      <Package className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="font-bold flex items-center">
+                        Complete Package
+                        <Badge className="bg-yellow-400 text-yellow-900 ml-2 text-xs">
+                          POPULAR
+                        </Badge>
+                      </div>
+                      <div className="text-sm text-green-100">
+                        4 bottles - Save ₦4,000
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <h4 className="text-xl font-bold mb-1">Call to Order</h4>
-                    <p className="text-blue-100">
-                      Speak directly with our team
-                    </p>
-                  </div>
-                  <div className="text-right text-lg font-bold">
-                    +234 812 345 6789
+                  <div className="text-right">
+                    <div className="text-xl font-bold">₦37,000</div>
+                    <div className="text-xs text-green-100">
+                      Order via WhatsApp
+                    </div>
                   </div>
                 </div>
               </Card>
+
+              {/* 6 Bottles WhatsApp */}
+              <Card
+                className="bg-gradient-to-r from-purple-600 to-pink-700 text-white p-4 hover:shadow-xl transition-all cursor-pointer group"
+                onClick={() =>
+                  handleWhatsAppOrder("Premium Package (6 bottles)", "₦55,500")
+                }
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <div className="bg-white/20 rounded-full p-2">
+                      <Package className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <div className="font-bold">Premium Package</div>
+                      <div className="text-sm text-purple-100">
+                        6 bottles - Save ₦6,000
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-xl font-bold">₦55,500</div>
+                    <div className="text-xs text-purple-100">
+                      Order via WhatsApp
+                    </div>
+                  </div>
+                </div>
+              </Card>
+
+              {/* Alternative: Call to Order */}
+              <div className="text-center pt-4">
+                <p className="text-gray-300 mb-3">
+                  Prefer to speak with us directly?
+                </p>
+                <Card
+                  className="bg-gradient-to-r from-orange-600 to-red-700 text-white p-4 hover:shadow-xl transition-all cursor-pointer group"
+                  onClick={handleCallOrder}
+                >
+                  <div className="flex items-center justify-center space-x-3">
+                    <Phone className="w-6 h-6" />
+                    <div>
+                      <div className="font-bold">Call to Order</div>
+                      <div className="text-lg">+234 812 345 6789</div>
+                    </div>
+                  </div>
+                </Card>
+              </div>
             </div>
 
             {/* Trust Indicators */}
