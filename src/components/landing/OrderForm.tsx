@@ -41,9 +41,14 @@ const OrderForm = ({ selectedPackage }: OrderFormProps) => {
   });
 
   const packages = [
-    { name: "Basic Package (2 bottles)", bottles: 2, price: "₦20,500" },
-    { name: "Complete Package (4 bottles)", bottles: 4, price: "₦37,000" },
     { name: "Premium Package (6 bottles)", bottles: 6, price: "₦55,500" },
+    {
+      name: "Complete Package (4 bottles)",
+      bottles: 4,
+      price: "₦37,000",
+      recommended: true,
+    },
+    { name: "Basic Package (2 bottles)", bottles: 2, price: "₦20,500" },
   ];
 
   const paymentMethods = [
@@ -257,7 +262,14 @@ const OrderForm = ({ selectedPackage }: OrderFormProps) => {
                 {packages.map((pkg) => (
                   <SelectItem key={pkg.name} value={pkg.name}>
                     <div className="flex items-center justify-between w-full">
-                      <span>{pkg.name}</span>
+                      <div className="flex items-center">
+                        <span>{pkg.name}</span>
+                        {pkg.recommended && (
+                          <span className="ml-2 bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full font-bold">
+                            RECOMMENDED
+                          </span>
+                        )}
+                      </div>
                       <span className="ml-4 font-bold text-green-600">
                         {pkg.price}
                       </span>
