@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -10,9 +11,13 @@ import {
   Phone,
   Package,
   Star,
+  FileText,
 } from "lucide-react";
+import OrderForm from "./OrderForm";
 
 const OrderSection = () => {
+  const [showForm, setShowForm] = useState(false);
+
   const benefits = [
     "Reduces emissions by up to 50%",
     "Improves fuel efficiency immediately",
@@ -320,6 +325,27 @@ const OrderSection = () => {
                 </div>
               </Card>
 
+              {/* Form Option */}
+              <div className="text-center pt-4">
+                <p className="text-gray-300 mb-3">
+                  Or fill out our secure order form
+                </p>
+                <Card
+                  className="bg-gradient-to-r from-purple-600 to-indigo-700 text-white p-4 hover:shadow-xl transition-all cursor-pointer group"
+                  onClick={() => setShowForm(true)}
+                >
+                  <div className="flex items-center justify-center space-x-3">
+                    <FileText className="w-6 h-6" />
+                    <div>
+                      <div className="font-bold">Fill Order Form</div>
+                      <div className="text-sm text-purple-100">
+                        Secure & Convenient
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+
               {/* Alternative: Call to Order */}
               <div className="text-center pt-4">
                 <p className="text-gray-300 mb-3">
@@ -371,6 +397,28 @@ const OrderSection = () => {
             </div>
           </div>
         </div>
+
+        {/* Order Form Section */}
+        {showForm && (
+          <div className="mt-16 max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <h3 className="text-3xl font-bold text-white mb-4">
+                Complete Your Order
+              </h3>
+              <p className="text-gray-300">
+                Fill out the form below and we'll contact you within 24 hours
+              </p>
+              <Button
+                variant="outline"
+                onClick={() => setShowForm(false)}
+                className="mt-4 bg-white/10 border-white/20 text-white hover:bg-white/20"
+              >
+                ← Back to Quick Order
+              </Button>
+            </div>
+            <OrderForm />
+          </div>
+        )}
       </div>
     </section>
   );
