@@ -16,6 +16,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Loader2, ShieldCheck, Package, CheckCircle } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { useNavigate } from "react-router-dom";
+import { EMAILJS_CONFIG } from "@/lib/emailConfig";
 
 interface OrderFormProps {
   selectedPackage?: {
@@ -84,7 +85,9 @@ const OrderForm = ({ selectedPackage }: OrderFormProps) => {
       const selectedPkg = packages.find(
         (pkg) => pkg.name === formData.packageType,
       );
-      const emailData = {
+
+      // EmailJS configuration
+      const templateParams = {
         to_email: "dlecomails@gmail.com",
         customer_name: formData.fullName,
         customer_phone: formData.phoneNumber,
@@ -94,30 +97,30 @@ const OrderForm = ({ selectedPackage }: OrderFormProps) => {
         payment_method: formData.paymentMethod,
         additional_notes: formData.additionalNotes || "None",
         order_date: new Date().toLocaleDateString(),
+        order_time: new Date().toLocaleTimeString(),
       };
 
-      // Send email using EmailJS (you'll need to set up EmailJS service)
-      // For now, we'll use a simple mailto as fallback
-      const subject = `New CleanMax Pro Order - ${formData.fullName}`;
-      const body = `
+      try {
+        // Send email using EmailJS
+        await emailjs.send(
+          EMAILJS_CONFIG.serviceId,
+          EMAILJS_CONFIG.templateId,
+          templateParams,
+          EMAILJS_CONFIG.publicKey
+        );
+
+        toast({
+          title: "Order Submitted Successfully!",
+          description: "Your order has been sent to our team. We'll contact you within 24 hours.",
+        });
+
+      } catch (emailError) {
+        console.log("EmailJS failed, using fallback method:", emailError);
+
+        // Fallback: Create a simple email body for manual sending
+        const subject = `New CleanMax Pro Order - ${formData.fullName}`;
+        const body = `
 Order Details:
-Customer Name: ${formData.fullName}
-Phone Number: ${formData.phoneNumber}
-Delivery Address: ${formData.deliveryAddress}
-Package: ${formData.packageType}
-Price: ${selectedPkg?.price}
-Payment Method: ${formData.paymentMethod}
-Additional Notes: ${formData.additionalNotes || "None"}
-Order Date: ${new Date().toLocaleDateString()}
-
-This is an automated order from CleanMax Pro website.
-      `.trim();
-
-      // Create mailto link
-      const mailtoLink = `mailto:dlecomails@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-      // Open mailto link
-      window.location.href = mailtoLink;
 
       // Show success message
       toast({
