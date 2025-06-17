@@ -128,21 +128,39 @@ const Hero = () => {
               <div className="relative bg-gradient-to-br from-white to-gray-100 rounded-3xl p-8 shadow-2xl">
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-500/10 to-green-500/10 rounded-3xl" />
 
-                {/* Product bottles image */}
-                <div className="relative z-10 rounded-2xl h-80 overflow-hidden shadow-lg">
-                  <img
-                    src="https://images.pexels.com/photos/5217901/pexels-photo-5217901.jpeg"
-                    alt="CleanMax Pro Catalytic Converter Cleaner Bottles"
-                    className="w-full h-full object-cover rounded-2xl"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-600/80 via-transparent to-transparent rounded-2xl" />
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <div className="text-xl font-bold">CleanMax Pro</div>
-                    <div className="text-sm opacity-90">
-                      Premium Catalytic Converter Cleaner
+                {/* Product bottle showcase */}
+                <div className="relative z-10 bg-white rounded-2xl h-80 flex items-center justify-center shadow-lg p-8">
+                  {/* Product bottle */}
+                  <div className="relative">
+                    <img
+                      src="https://images.pexels.com/photos/31864989/pexels-photo-31864989.jpeg"
+                      alt="CleanMax Pro Catalytic Converter Cleaner - Professional automotive treatment bottle"
+                      className="h-64 w-auto object-contain rounded-lg shadow-md"
+                    />
+                    {/* Product overlay information */}
+                    <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-brand-600 to-green-600 text-white rounded-lg p-2 shadow-lg">
+                      <div className="text-xs font-bold">120ml</div>
                     </div>
-                    <div className="mt-2 text-xs bg-white/20 rounded-full px-3 py-1 inline-block">
-                      120ml Professional Formula
+                  </div>
+
+                  {/* Product details overlay */}
+                  <div className="absolute bottom-4 left-4 right-4 bg-gradient-to-r from-brand-600/90 to-green-600/90 text-white rounded-lg p-3 backdrop-blur-sm">
+                    <div className="text-lg font-bold">CleanMax Pro</div>
+                    <div className="text-sm opacity-90">
+                      Catalytic Converter Cleaner
+                    </div>
+                    <div className="text-xs mt-1 opacity-80">
+                      Professional Formula • Made in Nigeria
+                    </div>
+                  </div>
+
+                  {/* Quality badges */}
+                  <div className="absolute top-4 right-4 space-y-2">
+                    <div className="bg-green-500 text-white text-xs px-2 py-1 rounded-full font-bold">
+                      50% Less Emissions
+                    </div>
+                    <div className="bg-blue-500 text-white text-xs px-2 py-1 rounded-full font-bold">
+                      25% Fuel Savings
                     </div>
                   </div>
                 </div>
