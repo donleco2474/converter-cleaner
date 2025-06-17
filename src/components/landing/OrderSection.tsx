@@ -264,40 +264,10 @@ const OrderSection = () => {
                 </div>
               </div>
             </div>
-
-            {/* Trust Indicators */}
-            <div className="grid grid-cols-3 gap-4 pt-8 border-t border-gray-700">
-              <div className="text-center">
-                <Truck className="w-8 h-8 mx-auto mb-2 text-green-400" />
-                <div className="text-sm text-gray-300">Free Delivery</div>
-              </div>
-              <div className="text-center">
-                <CreditCard className="w-8 h-8 mx-auto mb-2 text-blue-400" />
-                <div className="text-sm text-gray-300">Pay on Delivery</div>
-              </div>
-              <div className="text-center">
-                <Shield className="w-8 h-8 mx-auto mb-2 text-purple-400" />
-                <div className="text-sm text-gray-300">
-                  Satisfaction Guaranteed
-                </div>
-              </div>
-            </div>
-
-            {/* Urgency */}
-            <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-lg p-4 text-center">
-              <div className="flex items-center justify-center space-x-2 mb-2">
-                <Clock className="w-5 h-5" />
-                <span className="font-bold">Limited Time Offer</span>
-              </div>
-              <p className="text-sm text-orange-100">
-                Special launch price ends soon. Order now to secure your
-                discount!
-              </p>
-            </div>
           </div>
         </div>
 
-        {/* Order Form Section */}
+        {/* Order Form Section - Positioned Above Inquiries */}
         {showForm && (
           <div className="mt-16 max-w-4xl mx-auto">
             <div className="text-center mb-8">
@@ -316,6 +286,48 @@ const OrderSection = () => {
               </Button>
             </div>
             <OrderForm />
+          </div>
+        )}
+
+        {/* Inquiries Section - Now Below Form */}
+        {!showForm && (
+          <div className="mt-16 max-w-4xl mx-auto">
+            {/* Trust Indicators */}
+            <div className="grid md:grid-cols-3 gap-4 pt-8 border-t border-gray-700 text-center">
+              <div className="space-y-1">
+                <Truck className="w-8 h-8 mx-auto mb-2 text-green-400" />
+                <div className="text-sm font-medium text-white">
+                  Free Delivery
+                </div>
+                <div className="text-xs text-gray-300">Nationwide</div>
+              </div>
+              <div className="space-y-1">
+                <CreditCard className="w-8 h-8 mx-auto mb-2 text-blue-400" />
+                <div className="text-sm font-medium text-white">
+                  Pay on Delivery
+                </div>
+                <div className="text-xs text-gray-300">Secure Payment</div>
+              </div>
+              <div className="space-y-1">
+                <Shield className="w-8 h-8 mx-auto mb-2 text-purple-400" />
+                <div className="text-sm font-medium text-white">
+                  Satisfaction Guaranteed
+                </div>
+                <div className="text-xs text-gray-300">100% Secure</div>
+              </div>
+            </div>
+
+            {/* Urgency */}
+            <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-lg p-4 text-center mt-8">
+              <div className="flex items-center justify-center space-x-2 mb-2">
+                <Clock className="w-5 h-5" />
+                <span className="font-bold">Limited Time Offer</span>
+              </div>
+              <p className="text-sm text-orange-100">
+                Special launch price ends soon. Order now to secure your
+                discount!
+              </p>
+            </div>
           </div>
         )}
       </div>
