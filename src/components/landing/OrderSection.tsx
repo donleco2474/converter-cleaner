@@ -27,10 +27,6 @@ const OrderSection = () => {
     "Prevents costly repairs",
   ];
 
-  const handleCallOrder = () => {
-    window.open("tel:+2348123456789", "_self");
-  };
-
   return (
     <section
       id="order-section"
@@ -221,7 +217,7 @@ const OrderSection = () => {
             <div className="text-center">
               <h3 className="text-3xl font-bold mb-4">Ready to Order?</h3>
               <p className="text-gray-300 text-lg mb-6">
-                Choose your preferred ordering method below
+                Complete our secure order form to place your order
               </p>
             </div>
 
@@ -237,31 +233,35 @@ const OrderSection = () => {
                     <FileText className="w-8 h-8" />
                   </div>
                   <div className="text-center">
-                    <div className="text-xl font-bold">Fill Order Form</div>
+                    <div className="text-xl font-bold">Place Your Order</div>
                     <div className="text-sm text-brand-100">
-                      Secure & Convenient Ordering
+                      Fill our secure order form below
                     </div>
                   </div>
                 </div>
               </Card>
 
-              {/* Alternative: Call to Order */}
+              {/* Inquiries Note */}
               <div className="text-center pt-6">
-                <p className="text-gray-300 mb-3">
-                  Prefer to speak with us directly?
+                <p className="text-gray-300 text-sm mb-3">
+                  Have questions or need support?
                 </p>
-                <Card
-                  className="bg-gradient-to-r from-orange-600 to-red-700 text-white p-4 hover:shadow-xl transition-all cursor-pointer group"
-                  onClick={handleCallOrder}
-                >
-                  <div className="flex items-center justify-center space-x-3">
-                    <Phone className="w-6 h-6" />
+                <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
+                  <div className="flex items-center justify-center space-x-3 text-gray-300">
+                    <Phone className="w-5 h-5" />
                     <div>
-                      <div className="font-bold">Call to Order</div>
-                      <div className="text-lg">+234 812 345 6789</div>
+                      <div className="text-sm font-medium">
+                        Call for Inquiries
+                      </div>
+                      <div className="text-lg font-bold text-white">
+                        +234 812 345 6789
+                      </div>
+                      <div className="text-xs text-gray-400">
+                        Support & Questions Only
+                      </div>
                     </div>
                   </div>
-                </Card>
+                </div>
               </div>
             </div>
 
