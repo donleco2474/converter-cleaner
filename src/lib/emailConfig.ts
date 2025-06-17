@@ -10,7 +10,7 @@
 // 4. Replace the values below with your actual EmailJS credentials
 
 export const EMAILJS_CONFIG = {
-  serviceId: "service_7frndf5", // ✅ Your actual EmailJS service ID
+  serviceId: "service_qrfmw9b", // ✅ Your NEW EmailJS service ID (fixed authentication)
   templateId: "template_i3dcuml", // ✅ Your actual EmailJS template ID
   publicKey: "616UcV5M_5HjSDiY5", // ✅ Your actual EmailJS public key
 };
