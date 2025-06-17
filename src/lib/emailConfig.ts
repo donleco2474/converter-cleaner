@@ -12,7 +12,7 @@
 export const EMAILJS_CONFIG = {
   serviceId: "REPLACE_WITH_YOUR_SERVICE_ID", // Replace with your actual EmailJS service ID (e.g., service_abc1234)
   templateId: "REPLACE_WITH_YOUR_TEMPLATE_ID", // Replace with your actual EmailJS template ID (e.g., template_xyz5678)
-  publicKey: "REPLACE_WITH_YOUR_PUBLIC_KEY", // Replace with your actual EmailJS public key (e.g., user_mnp9012)
+  publicKey: "616UcV5M_5HjSDiY5", // ✅ Your actual EmailJS public key
 };
 
 // Email template example for EmailJS:
