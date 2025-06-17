@@ -160,7 +160,7 @@ const Hero = () => {
                   {/* Product bottle */}
                   <div className="relative">
                     <img
-                      src="https://images.pexels.com/photos/31864989/pexels-photo-31864989.jpeg"
+                      src="https://i.imgur.com/RaazGCo.jpg"
                       alt="CleanMax Pro Catalytic Converter Cleaner - Professional automotive treatment bottle"
                       className="h-48 w-auto object-contain rounded-lg shadow-md"
                     />
