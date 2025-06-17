@@ -118,24 +118,51 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Content - Product Visual */}
+          {/* Right Content - Product Visual & Video */}
           <div
-            className="relative animate-fade-up"
+            className="relative animate-fade-up space-y-8"
             style={{ animationDelay: "0.3s" }}
           >
+            {/* YouTube Video Section */}
+            <div className="relative mx-auto max-w-md">
+              <div className="relative bg-gradient-to-br from-white to-gray-100 rounded-3xl p-4 shadow-2xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-500/10 to-green-500/10 rounded-3xl" />
+
+                {/* Video container */}
+                <div className="relative z-10 aspect-video rounded-2xl overflow-hidden shadow-lg">
+                  <iframe
+                    src="https://www.youtube.com/embed/G2oAvTyFxPI?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=1"
+                    title="CleanMax Pro Catalytic Converter Cleaner - Product Demo"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full rounded-2xl"
+                  />
+                </div>
+
+                {/* Video label */}
+                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-full px-4 py-1 shadow-lg">
+                  <div className="text-xs font-bold flex items-center">
+                    <div className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></div>
+                    Watch Demo
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Product Showcase */}
             <div className="relative mx-auto max-w-md">
               {/* Product container with glow effect */}
               <div className="relative bg-gradient-to-br from-white to-gray-100 rounded-3xl p-8 shadow-2xl">
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-500/10 to-green-500/10 rounded-3xl" />
 
                 {/* Product bottle showcase */}
-                <div className="relative z-10 bg-white rounded-2xl h-80 flex items-center justify-center shadow-lg p-8">
+                <div className="relative z-10 bg-white rounded-2xl h-64 flex items-center justify-center shadow-lg p-6">
                   {/* Product bottle */}
                   <div className="relative">
                     <img
                       src="https://images.pexels.com/photos/31864989/pexels-photo-31864989.jpeg"
                       alt="CleanMax Pro Catalytic Converter Cleaner - Professional automotive treatment bottle"
-                      className="h-64 w-auto object-contain rounded-lg shadow-md"
+                      className="h-48 w-auto object-contain rounded-lg shadow-md"
                     />
                     {/* Product overlay information */}
                     <div className="absolute -bottom-2 -right-2 bg-gradient-to-r from-brand-600 to-green-600 text-white rounded-lg p-2 shadow-lg">
@@ -144,18 +171,15 @@ const Hero = () => {
                   </div>
 
                   {/* Product details overlay */}
-                  <div className="absolute bottom-4 left-4 right-4 bg-gradient-to-r from-brand-600/90 to-green-600/90 text-white rounded-lg p-3 backdrop-blur-sm">
-                    <div className="text-lg font-bold">CleanMax Pro</div>
-                    <div className="text-sm opacity-90">
-                      Catalytic Converter Cleaner
-                    </div>
-                    <div className="text-xs mt-1 opacity-80">
-                      Professional Formula • Made in Nigeria
+                  <div className="absolute bottom-2 left-2 right-2 bg-gradient-to-r from-brand-600/90 to-green-600/90 text-white rounded-lg p-2 backdrop-blur-sm">
+                    <div className="text-sm font-bold">CleanMax Pro</div>
+                    <div className="text-xs opacity-90">
+                      Premium Formula • Made in Nigeria
                     </div>
                   </div>
 
                   {/* Quality badges */}
-                  <div className="absolute top-4 right-4 space-y-2">
+                  <div className="absolute top-2 right-2 space-y-1">
                     <div className="bg-green-500 text-white text-xs px-2 py-1 rounded-full font-bold">
                       50% Less Emissions
                     </div>
