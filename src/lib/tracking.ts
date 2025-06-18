@@ -17,7 +17,7 @@ export const TRACKING_CONFIG = {
 
   // Facebook Pixel
   facebookPixel: {
-    pixelId: "XXXXXXXXXXXXXXX", // Replace with your Facebook Pixel ID
+    pixelId: "470683655547090", // Replace with your Facebook Pixel ID
     enabled: false, // Set to true when you add your pixel ID
   },
 };
