@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Zap, Gauge, Leaf } from "lucide-react";
+import { trackVideoPlay, trackButtonClick } from "@/lib/tracking";
 
 const Hero = () => {
   const scrollToOrder = () => {
@@ -81,7 +82,10 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
-                onClick={scrollToOrder}
+                onClick={() => {
+                  trackButtonClick("order_now_hero", "hero_section");
+                  scrollToOrder();
+                }}
                 className="bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-700 hover:to-brand-800 text-white px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Order Now - ₦20,500
@@ -90,11 +94,12 @@ const Hero = () => {
               <Button
                 variant="outline"
                 size="lg"
-                onClick={() =>
+                onClick={() => {
+                  trackButtonClick("learn_more", "hero_section");
                   document
                     .getElementById("features")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
                 className="px-8 py-6 text-lg font-semibold border-2 hover:bg-gray-50"
               >
                 Learn More
@@ -131,11 +136,15 @@ const Hero = () => {
                 {/* Video container */}
                 <div className="relative z-10 aspect-video rounded-2xl overflow-hidden shadow-lg">
                   <iframe
-                    src="https://www.youtube.com/embed/G2oAvTyFxPI?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=1"
+                    src="https://www.youtube.com/embed/G2oAvTyFxPI?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=1&enablejsapi=1"
                     title="CleanMax Pro Catalytic Converter Cleaner - Product Demo"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     className="w-full h-full rounded-2xl"
+                    onLoad={() => {
+                      // Track video load
+                      trackVideoPlay();
+                    }}
                   />
                 </div>
 

@@ -17,6 +17,12 @@ import { Loader2, ShieldCheck, Package, CheckCircle } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { useNavigate } from "react-router-dom";
 import { EMAILJS_CONFIG } from "@/lib/emailConfig";
+import {
+  trackOrderSubmission,
+  trackFormStart,
+  trackFormStep,
+  getPriceFromPackage,
+} from "@/lib/tracking";
 
 interface OrderFormProps {
   selectedPackage?: {
@@ -30,6 +36,11 @@ const OrderForm = ({ selectedPackage }: OrderFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
+
+  // Track form start when component mounts
+  useState(() => {
+    trackFormStart();
+  });
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -62,6 +73,14 @@ const OrderForm = ({ selectedPackage }: OrderFormProps) => {
       ...prev,
       [name]: value,
     }));
+
+    // Track form progress
+    if (name === "packageType" && value) {
+      trackFormStep("package_selected");
+    }
+    if (name === "paymentMethod" && value) {
+      trackFormStep("payment_method_selected");
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -113,6 +132,15 @@ const OrderForm = ({ selectedPackage }: OrderFormProps) => {
           templateParams,
           EMAILJS_CONFIG.publicKey,
         );
+
+        // Track successful order conversion
+        const orderValue = getPriceFromPackage(formData.packageType);
+        trackOrderSubmission({
+          value: orderValue,
+          currency: "NGN",
+          packageType: formData.packageType,
+          customerName: formData.fullName,
+        });
 
         toast({
           title: "Order Submitted Successfully!",
