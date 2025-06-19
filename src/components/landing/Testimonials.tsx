@@ -11,6 +11,9 @@ const Testimonials = () => {
       text: "Wow!!! I noticed everything about my car has changed since I used this. Even the sound of the engine is a lot different and better.",
       verified: true,
       avatar: "JK",
+      image:
+        "https://images.pexels.com/photos/8715785/pexels-photo-8715785.jpeg",
+      packagesOrdered: 2,
     },
     {
       name: "Sarah Adebayo",
@@ -19,6 +22,9 @@ const Testimonials = () => {
       text: "My fuel consumption improved significantly after just one bottle. The engine runs so much smoother now and I'm saving money on gas!",
       verified: true,
       avatar: "SA",
+      image:
+        "https://images.pexels.com/photos/32552064/pexels-photo-32552064.jpeg",
+      packagesOrdered: 4,
     },
     {
       name: "Michael Okafor",
@@ -27,6 +33,9 @@ const Testimonials = () => {
       text: "I was skeptical at first, but this product really works. No more engine warning lights and my car feels like new again.",
       verified: true,
       avatar: "MO",
+      image:
+        "https://images.pexels.com/photos/9363545/pexels-photo-9363545.jpeg",
+      packagesOrdered: 6,
     },
     {
       name: "Grace Emeka",
@@ -35,6 +44,9 @@ const Testimonials = () => {
       text: "Easy to use and immediate results. The delivery was fast and payment on delivery made it convenient. Highly recommend!",
       verified: true,
       avatar: "GE",
+      image:
+        "https://images.pexels.com/photos/28656263/pexels-photo-28656263.jpeg",
+      packagesOrdered: 2,
     },
     {
       name: "David Yusuf",
@@ -43,6 +55,9 @@ const Testimonials = () => {
       text: "Been using this for 6 months now. My car's performance has never been better and emissions test passed with flying colors.",
       verified: true,
       avatar: "DY",
+      image:
+        "https://images.pexels.com/photos/32401765/pexels-photo-32401765.jpeg",
+      packagesOrdered: 4,
     },
     {
       name: "Amina Hassan",
@@ -51,6 +66,9 @@ const Testimonials = () => {
       text: "Worth every naira! My hybrid car's engine efficiency improved dramatically. This product is a game-changer.",
       verified: true,
       avatar: "AH",
+      image:
+        "https://images.pexels.com/photos/7552373/pexels-photo-7552373.jpeg",
+      packagesOrdered: 6,
     },
   ];
 
@@ -115,11 +133,17 @@ const Testimonials = () => {
 
                 {/* Customer info */}
                 <div className="flex items-center space-x-3 pt-4 border-t border-gray-100">
-                  <img
-                    src="https://images.pexels.com/photos/6958416/pexels-photo-6958416.jpeg"
-                    alt={`Happy customer ${testimonial.name}`}
-                    className="w-12 h-12 rounded-full object-cover shadow-md"
-                  />
+                  <div className="relative">
+                    <img
+                      src={testimonial.image}
+                      alt={`Happy customer ${testimonial.name}`}
+                      className="w-12 h-12 rounded-full object-cover shadow-md"
+                    />
+                    {/* Packages ordered indicator */}
+                    <div className="absolute -bottom-1 -right-1 bg-brand-600 text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold">
+                      {testimonial.packagesOrdered}
+                    </div>
+                  </div>
                   <div>
                     <div className="font-semibold text-gray-900">
                       {testimonial.name}
@@ -127,6 +151,10 @@ const Testimonials = () => {
                     <div className="flex items-center text-sm text-gray-600">
                       <MapPin className="w-3 h-3 mr-1" />
                       {testimonial.location}
+                    </div>
+                    <div className="text-xs text-gray-500 mt-1">
+                      Ordered {testimonial.packagesOrdered} bottle
+                      {testimonial.packagesOrdered > 1 ? "s" : ""}
                     </div>
                   </div>
                 </div>
