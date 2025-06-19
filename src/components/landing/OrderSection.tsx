@@ -225,9 +225,14 @@ const OrderSection = () => {
             <div className="space-y-4">
               {/* Primary Form Option */}
               <Card
-                className="bg-gradient-to-r from-brand-600 to-green-600 text-white p-6 hover:shadow-xl transition-all cursor-pointer group"
+                className="bg-gradient-to-r from-brand-600 to-green-600 text-white p-6 hover:shadow-xl transition-all cursor-pointer group relative border-2 border-yellow-400 animate-pulse"
                 onClick={() => setShowForm(true)}
               >
+                {/* Click indicator */}
+                <div className="absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 rounded-full px-3 py-1 text-xs font-bold animate-bounce">
+                  👆 CLICK HERE
+                </div>
+
                 <div className="flex items-center justify-center space-x-4">
                   <div className="bg-white/20 rounded-full p-3 group-hover:scale-110 transition-transform">
                     <FileText className="w-8 h-8" />
@@ -235,7 +240,10 @@ const OrderSection = () => {
                   <div className="text-center">
                     <div className="text-xl font-bold">Place Your Order</div>
                     <div className="text-sm text-brand-100">
-                      Fill our secure order form below
+                      👇 Click to open order form below 👇
+                    </div>
+                    <div className="text-xs text-yellow-200 mt-1 font-medium">
+                      ⬇️ Form will appear when you click this button ⬇️
                     </div>
                   </div>
                 </div>
@@ -299,16 +307,27 @@ const OrderSection = () => {
                 <div className="text-sm font-medium text-white">
                   Free Delivery
                 </div>
-                <div className="text-xs text-gray-300">Nationwide</div>
-              </div>
-              <div className="space-y-1">
-                <CreditCard className="w-8 h-8 mx-auto mb-2 text-blue-400" />
-                <div className="text-sm font-medium text-white">
-                  Pay on Delivery
+                <div className="text-center">
+                  <h3 className="text-3xl font-bold text-white mb-4">
+                    Ready to Order?
+                  </h3>
+                  <p className="text-gray-300 text-lg mb-6">
+                    Complete our secure order form to place your order
+                  </p>
+
+                  {/* Instruction for form button */}
+                  {!showForm && (
+                    <div className="bg-yellow-400 text-yellow-900 rounded-lg p-3 mb-4 mx-auto max-w-md">
+                      <div className="flex items-center justify-center space-x-2">
+                        <div className="text-2xl animate-bounce">👇</div>
+                        <div className="font-bold text-sm">
+                          Click the button below to open the order form
+                        </div>
+                        <div className="text-2xl animate-bounce">👇</div>
+                      </div>
+                    </div>
+                  )}
                 </div>
-                <div className="text-xs text-gray-300">Secure Payment</div>
-              </div>
-              <div className="space-y-1">
                 <Shield className="w-8 h-8 mx-auto mb-2 text-purple-400" />
                 <div className="text-sm font-medium text-white">
                   Satisfaction Guaranteed
