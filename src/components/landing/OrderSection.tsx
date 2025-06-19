@@ -317,13 +317,19 @@ const OrderSection = () => {
 
                   {/* Instruction for form button */}
                   {!showForm && (
-                    <div className="bg-yellow-400 text-yellow-900 rounded-lg p-3 mb-4 mx-auto max-w-md">
+                    <div
+                      className="bg-yellow-400 text-yellow-900 rounded-lg p-3 mb-4 mx-auto max-w-md cursor-pointer hover:bg-yellow-500 transition-colors border-2 border-yellow-600"
+                      onClick={() => setShowForm(true)}
+                    >
                       <div className="flex items-center justify-center space-x-2">
                         <div className="text-2xl animate-bounce">👇</div>
                         <div className="font-bold text-sm">
-                          Click the button below to open the order form
+                          Click HERE or the button below to open the order form
                         </div>
                         <div className="text-2xl animate-bounce">👇</div>
+                      </div>
+                      <div className="text-center text-xs mt-1 font-medium">
+                        ✨ This banner is also clickable! ✨
                       </div>
                     </div>
                   )}
