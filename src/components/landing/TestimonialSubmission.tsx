@@ -25,14 +25,20 @@ const TestimonialSubmission = () => {
           {/* Main content */}
           <div className="space-y-6 mb-8">
             <p className="text-lg text-gray-700 leading-relaxed">
-              We love hearing from our customers! If you've used this product, please send your honest feedback to{" "}
-              <span className="font-medium text-brand-600">lincomarket@gmail.com</span> — or simply click the button below to share your testimonial.
+              We love hearing from our customers! If you've used this product,
+              please send your honest feedback to{" "}
+              <span className="font-medium text-brand-600">
+                lincomarket@gmail.com
+              </span>{" "}
+              — or simply click the button below to share your testimonial.
             </p>
 
             <div className="flex items-start justify-center space-x-3 text-left max-w-2xl mx-auto">
               <Shield className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
               <p className="text-gray-600">
-                ✅ We rotate these testimonials often to keep things fresh and genuine. Want to stay anonymous? Just let us know, and we'll keep your name private.
+                ✅ We rotate these testimonials often to keep things fresh and
+                genuine. Want to stay anonymous? Just let us know, and we'll
+                keep your name private.
               </p>
             </div>
           </div>
