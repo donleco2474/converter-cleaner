@@ -1,6 +1,7 @@
 import Hero from "@/components/landing/Hero";
 import Features from "@/components/landing/Features";
 import Testimonials from "@/components/landing/Testimonials";
+import TestimonialSubmission from "@/components/landing/TestimonialSubmission";
 import OrderSection from "@/components/landing/OrderSection";
 
 const Index = () => {
