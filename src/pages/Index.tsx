@@ -10,6 +10,7 @@ const Index = () => {
       <Hero />
       <Features />
       <Testimonials />
+      <TestimonialSubmission />
       <OrderSection />
 
       {/* Footer */}
