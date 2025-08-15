@@ -11,6 +11,7 @@ import {
   MessageCircle,
   Gift,
 } from "lucide-react";
+import WhatsAppButton from "@/components/ui/whatsapp-button";
 
 const ThankYou = () => {
   const location = useLocation();
@@ -137,7 +138,13 @@ const ThankYou = () => {
               Need Help or Have Questions?
             </h3>
 
-            <div className="max-w-md mx-auto">
+            <div className="max-w-md mx-auto space-y-4">
+              {/* WhatsApp Confirmation Button */}
+              <WhatsAppButton
+                productName={orderData.packageType || "CleanMax Pro"}
+                className="w-full p-6 h-auto text-lg"
+              />
+
               {/* Phone Contact for Inquiries */}
               <Button
                 onClick={() => window.open("tel:+2347030151874", "_self")}
