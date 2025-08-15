@@ -11,7 +11,6 @@ import {
   CheckCircle,
   ArrowRight,
 } from "lucide-react";
-import WhatsAppButton from "@/components/ui/whatsapp-button";
 import { trackButtonClick } from "@/lib/tracking";
 
 const Features = () => {
@@ -204,20 +203,17 @@ const Features = () => {
                 Reduce harmful emissions and contribute to a cleaner planet with
                 every drive
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Button
-                  size="lg"
-                  onClick={() => {
-                    trackButtonClick("order_now_features", "features_section");
-                    const element = document.getElementById("order-section");
-                    element?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="bg-white text-green-800 hover:bg-gray-100 px-6 py-3 font-semibold"
-                >
-                  Start Reducing Emissions Today
-                </Button>
-                <WhatsAppButton className="bg-green-600 hover:bg-green-700" />
-              </div>
+              <Button
+                size="lg"
+                onClick={() => {
+                  trackButtonClick("order_now_features", "features_section");
+                  const element = document.getElementById("order-section");
+                  element?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="bg-white text-green-800 hover:bg-gray-100 px-6 py-3 font-semibold"
+              >
+                Start Reducing Emissions Today
+              </Button>
             </div>
           </div>
         </div>
