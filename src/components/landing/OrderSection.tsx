@@ -16,7 +16,6 @@ import {
 import OrderForm from "./OrderForm";
 
 const OrderSection = () => {
-  const [showForm, setShowForm] = useState(false);
 
   const benefits = [
     "Reduces emissions by up to 50%",
