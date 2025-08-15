@@ -133,6 +133,20 @@ export const trackFormStep = (step: string) => {
     checkout_step: step,
     content_category: "automotive_cleaner",
   });
+
+  // Track package selection as AddToCart event
+  if (step === "package_selected") {
+    if (
+      TRACKING_CONFIG.facebookPixel.enabled &&
+      typeof window !== "undefined" &&
+      (window as any).fbq
+    ) {
+      (window as any).fbq("track", "AddToCart", {
+        content_category: "automotive_cleaner",
+        content_name: "CleanMax Pro Package Selected",
+      });
+    }
+  }
 };
 
 // Track video engagement
