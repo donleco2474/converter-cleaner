@@ -1,4 +1,5 @@
-import { useLocation, Link, useEffect } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation, Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
