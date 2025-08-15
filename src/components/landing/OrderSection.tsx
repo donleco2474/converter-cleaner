@@ -14,6 +14,7 @@ import {
   FileText,
 } from "lucide-react";
 import OrderForm from "./OrderForm";
+import WhatsAppButton from "@/components/ui/whatsapp-button";
 
 const OrderSection = () => {
 
@@ -214,9 +215,12 @@ const OrderSection = () => {
             <h3 className="text-3xl font-bold text-white mb-4">
               Complete Your Order
             </h3>
-            <p className="text-gray-300">
+            <p className="text-gray-300 mb-6">
               Fill out the form below and we'll contact you within 24 hours
             </p>
+            <div className="flex justify-center">
+              <WhatsAppButton className="mb-4" />
+            </div>
           </div>
           <OrderForm />
         </div>
