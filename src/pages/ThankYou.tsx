@@ -20,6 +20,9 @@ const ThankYou = () => {
 
   // Track purchase event on page load (backup tracking)
   useEffect(() => {
+    // Track page view for thank you page
+    trackPageView("/thank-you");
+
     if (orderData.packageType && orderData.customerName) {
       const orderValue = orderData.price
         ? parseInt(orderData.price.replace(/[^0-9]/g, ''))
@@ -196,7 +199,7 @@ const ThankYou = () => {
                 <li>
                   • Keep your phone number accessible for delivery coordination
                 </li>
-                <li>�� Ensure someone is available to receive the package</li>
+                <li>• Ensure someone is available to receive the package</li>
                 <li>• Have your payment ready (Cash, Bank Transfer, or POS)</li>
                 <li>• Contact us immediately if your details change</li>
               </ul>
