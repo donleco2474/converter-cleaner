@@ -26,9 +26,18 @@ const WhatsAppButton = ({
     <Button
       onClick={handleClick}
       size={size}
-      className={`bg-green-500 hover:bg-green-600 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 ${className}`}
+      className={`bg-green-500 hover:bg-green-600 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 h-auto py-4 ${className}`}
     >
-      📲 Get Instant Confirmation on WhatsApp
+      <div className="text-center">
+        <div className="text-base font-semibold">
+          📲 Get Instant Confirmation on WhatsApp
+        </div>
+        <div className="text-xs mt-1 leading-tight opacity-90">
+          Click to avoid waiting for our call — our team will confirm
+          <br className="hidden sm:block" />
+          <span className="sm:hidden"> </span>and start processing your order immediately
+        </div>
+      </div>
     </Button>
   );
 };
