@@ -1,4 +1,4 @@
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useEffect } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -12,10 +12,34 @@ import {
   Gift,
 } from "lucide-react";
 import WhatsAppButton from "@/components/ui/whatsapp-button";
+import { trackOrderSubmission, getPriceFromPackage } from "@/lib/tracking";
 
 const ThankYou = () => {
   const location = useLocation();
   const orderData = location.state || {};
+
+  // Track purchase event on page load (backup tracking)
+  useEffect(() => {
+    if (orderData.packageType && orderData.customerName) {
+      const orderValue = orderData.price
+        ? parseInt(orderData.price.replace(/[^0-9]/g, ''))
+        : getPriceFromPackage(orderData.packageType);
+
+      // Fire purchase event as backup
+      trackOrderSubmission({
+        value: orderValue,
+        currency: "NGN",
+        packageType: orderData.packageType,
+        customerName: orderData.customerName,
+      });
+
+      console.log('Purchase tracking fired on Thank You page:', {
+        value: orderValue,
+        packageType: orderData.packageType,
+        customerName: orderData.customerName
+      });
+    }
+  }, [orderData]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 flex items-center justify-center p-4">
