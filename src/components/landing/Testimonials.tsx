@@ -2,7 +2,6 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Star, Quote, MapPin } from "lucide-react";
-import WhatsAppButton from "@/components/ui/whatsapp-button";
 import { trackButtonClick } from "@/lib/tracking";
 
 const Testimonials = () => {
@@ -214,7 +213,7 @@ const Testimonials = () => {
           {/* Join satisfied customers CTA */}
           <div className="max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Join These Satisfied Customers</h3>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex justify-center">
               <Button
                 size="lg"
                 onClick={() => {
@@ -226,7 +225,6 @@ const Testimonials = () => {
               >
                 Order Your CleanMax Pro Now
               </Button>
-              <WhatsAppButton className="px-6 py-3" />
             </div>
           </div>
         </div>
