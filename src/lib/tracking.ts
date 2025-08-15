@@ -18,7 +18,7 @@ export const TRACKING_CONFIG = {
   // Facebook Pixel
   facebookPixel: {
     pixelId: "470683655547090", // Replace with your Facebook Pixel ID
-    enabled: false, // Set to true when you add your pixel ID
+    enabled: true, // Set to true when you add your pixel ID
   },
 };
 
@@ -114,6 +114,18 @@ export const trackFormStart = () => {
   trackEvent("begin_checkout", {
     content_category: "automotive_cleaner",
   });
+
+  // Facebook specific InitiateCheckout event
+  if (
+    TRACKING_CONFIG.facebookPixel.enabled &&
+    typeof window !== "undefined" &&
+    (window as any).fbq
+  ) {
+    (window as any).fbq("track", "InitiateCheckout", {
+      content_category: "automotive_cleaner",
+      content_name: "CleanMax Pro Order Form",
+    });
+  }
 };
 
 export const trackFormStep = (step: string) => {
@@ -121,6 +133,20 @@ export const trackFormStep = (step: string) => {
     checkout_step: step,
     content_category: "automotive_cleaner",
   });
+
+  // Track package selection as AddToCart event
+  if (step === "package_selected") {
+    if (
+      TRACKING_CONFIG.facebookPixel.enabled &&
+      typeof window !== "undefined" &&
+      (window as any).fbq
+    ) {
+      (window as any).fbq("track", "AddToCart", {
+        content_category: "automotive_cleaner",
+        content_name: "CleanMax Pro Package Selected",
+      });
+    }
+  }
 };
 
 // Track video engagement

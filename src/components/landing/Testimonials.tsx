@@ -1,6 +1,8 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Star, Quote, MapPin } from "lucide-react";
+import { trackButtonClick } from "@/lib/tracking";
 
 const Testimonials = () => {
   const testimonials = [
@@ -173,16 +175,27 @@ const Testimonials = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-brand-900/80 to-green-900/80 rounded-2xl flex items-center justify-center">
             <div className="text-center text-white">
               <h3 className="text-2xl font-bold mb-2">Save Money Every Mile</h3>
-              <p className="text-brand-100">
+              <p className="text-brand-100 mb-4">
                 Customers report up to 25% improvement in fuel efficiency
               </p>
+              <Button
+                size="lg"
+                onClick={() => {
+                  trackButtonClick("order_now_testimonials", "testimonials_section");
+                  const element = document.getElementById("order-section");
+                  element?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="bg-white text-brand-600 hover:bg-gray-100 px-6 py-3 font-semibold"
+              >
+                Start Saving on Fuel Today
+              </Button>
             </div>
           </div>
         </div>
 
         {/* Trust indicators */}
         <div className="mt-16 text-center">
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-8">
             <div className="space-y-2">
               <div className="text-3xl font-bold text-brand-600">5,000+</div>
               <div className="text-gray-600">Happy Customers</div>
@@ -194,6 +207,24 @@ const Testimonials = () => {
             <div className="space-y-2">
               <div className="text-3xl font-bold text-orange-600">98%</div>
               <div className="text-gray-600">Would Recommend</div>
+            </div>
+          </div>
+
+          {/* Join satisfied customers CTA */}
+          <div className="max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Join These Satisfied Customers</h3>
+            <div className="flex justify-center">
+              <Button
+                size="lg"
+                onClick={() => {
+                  trackButtonClick("order_now_trust", "testimonials_section");
+                  const element = document.getElementById("order-section");
+                  element?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="bg-gradient-to-r from-brand-600 to-green-600 text-white px-8 py-3 font-semibold"
+              >
+                Order Your CleanMax Pro Now
+              </Button>
             </div>
           </div>
         </div>

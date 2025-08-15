@@ -16,7 +16,6 @@ import {
 import OrderForm from "./OrderForm";
 
 const OrderSection = () => {
-  const [showForm, setShowForm] = useState(false);
 
   const benefits = [
     "Reduces emissions by up to 50%",
@@ -209,152 +208,80 @@ const OrderSection = () => {
           </Card>
         </div>
 
-        <div className="grid lg:grid-cols-1 gap-12 items-center max-w-4xl mx-auto">
-          {/* Order section will be placed here */}
-
-          {/* Order Options */}
-          <div className="space-y-8">
-            <div className="text-center">
-              <h3 className="text-3xl font-bold mb-4">Ready to Order?</h3>
-              <p className="text-gray-300 text-lg mb-6">
-                Complete our secure order form to place your order
-              </p>
-            </div>
-
-            {/* Order Options */}
-            <div className="space-y-4">
-              {/* Primary Form Option */}
-              <Card
-                className="bg-gradient-to-r from-brand-600 to-green-600 text-white p-6 hover:shadow-xl transition-all cursor-pointer group relative border-2 border-yellow-400 animate-pulse"
-                onClick={() => setShowForm(true)}
-              >
-                {/* Click indicator */}
-                <div className="absolute -top-2 -right-2 bg-yellow-400 text-yellow-900 rounded-full px-3 py-1 text-xs font-bold animate-bounce">
-                  👆 CLICK HERE
-                </div>
-
-                <div className="flex items-center justify-center space-x-4">
-                  <div className="bg-white/20 rounded-full p-3 group-hover:scale-110 transition-transform">
-                    <FileText className="w-8 h-8" />
-                  </div>
-                  <div className="text-center">
-                    <div className="text-xl font-bold">Place Your Order</div>
-                    <div className="text-sm text-brand-100">
-                      👇 Click to open order form below 👇
-                    </div>
-                    <div className="text-xs text-yellow-200 mt-1 font-medium">
-                      ⬇️ Form will appear when you click this button ⬇️
-                    </div>
-                  </div>
-                </div>
-              </Card>
-
-              {/* Inquiries Note */}
-              <div className="text-center pt-6">
-                <p className="text-gray-300 text-sm mb-3">
-                  Have questions or need support?
-                </p>
-                <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
-                  <div className="flex items-center justify-center space-x-3 text-gray-300">
-                    <Phone className="w-5 h-5" />
-                    <div>
-                      <div className="text-sm font-medium">
-                        Call for Inquiries
-                      </div>
-                      <div className="text-lg font-bold text-white">
-                        07030151874
-                      </div>
-                      <div className="text-xs text-gray-400">
-                        Support & Questions Only
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        {/* Order Form Section - Always Visible */}
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-8">
+            <h3 className="text-3xl font-bold text-white mb-4">
+              Complete Your Order
+            </h3>
+            <p className="text-gray-300">
+              Fill out the form below and we'll contact you within 24 hours
+            </p>
           </div>
+          <OrderForm />
         </div>
 
-        {/* Order Form Section - Positioned Above Inquiries */}
-        {showForm && (
-          <div className="mt-16 max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold text-white mb-4">
-                Complete Your Order
-              </h3>
-              <p className="text-gray-300">
-                Fill out the form below and we'll contact you within 24 hours
-              </p>
-              <Button
-                variant="outline"
-                onClick={() => setShowForm(false)}
-                className="mt-4 bg-white/10 border-white/20 text-white hover:bg-white/20"
-              >
-                ← Back to Quick Order
-              </Button>
-            </div>
-            <OrderForm />
-          </div>
-        )}
-
-        {/* Inquiries Section - Now Below Form */}
-        {!showForm && (
-          <div className="mt-16 max-w-4xl mx-auto">
-            {/* Trust Indicators */}
-            <div className="grid md:grid-cols-3 gap-4 pt-8 border-t border-gray-700 text-center">
-              <div className="space-y-1">
-                <Truck className="w-8 h-8 mx-auto mb-2 text-green-400" />
-                <div className="text-sm font-medium text-white">
-                  Free Delivery
-                </div>
-                <div className="text-center">
-                  <h3 className="text-3xl font-bold text-white mb-4">
-                    Ready to Order?
-                  </h3>
-                  <p className="text-gray-300 text-lg mb-6">
-                    Complete our secure order form to place your order
-                  </p>
-
-                  {/* Instruction for form button */}
-                  {!showForm && (
-                    <div
-                      className="bg-yellow-400 text-yellow-900 rounded-lg p-3 mb-4 mx-auto max-w-md cursor-pointer hover:bg-yellow-500 transition-colors border-2 border-yellow-600"
-                      onClick={() => setShowForm(true)}
-                    >
-                      <div className="flex items-center justify-center space-x-2">
-                        <div className="text-2xl animate-bounce">👇</div>
-                        <div className="font-bold text-sm">
-                          Click HERE or the button below to open the order form
-                        </div>
-                        <div className="text-2xl animate-bounce">👇</div>
-                      </div>
-                      <div className="text-center text-xs mt-1 font-medium">
-                        ✨ This banner is also clickable! ✨
-                      </div>
-                    </div>
-                  )}
-                </div>
-                <Shield className="w-8 h-8 mx-auto mb-2 text-purple-400" />
-                <div className="text-sm font-medium text-white">
-                  Satisfaction Guaranteed
-                </div>
-                <div className="text-xs text-gray-300">100% Secure</div>
+        {/* Trust Indicators */}
+        <div className="mt-16 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-4 pt-8 border-t border-gray-700 text-center">
+            <div className="space-y-1">
+              <Truck className="w-8 h-8 mx-auto mb-2 text-green-400" />
+              <div className="text-sm font-medium text-white">
+                Free Delivery
               </div>
+              <div className="text-xs text-gray-300">Nationwide</div>
             </div>
-
-            {/* Urgency */}
-            <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-lg p-4 text-center mt-8">
-              <div className="flex items-center justify-center space-x-2 mb-2">
-                <Clock className="w-5 h-5" />
-                <span className="font-bold">Limited Time Offer</span>
+            <div className="space-y-1">
+              <CreditCard className="w-8 h-8 mx-auto mb-2 text-blue-400" />
+              <div className="text-sm font-medium text-white">
+                Pay on Delivery
               </div>
-              <p className="text-sm text-orange-100">
-                Special launch price ends soon. Order now to secure your
-                discount!
-              </p>
+              <div className="text-xs text-gray-300">Secure Payment</div>
+            </div>
+            <div className="space-y-1">
+              <Shield className="w-8 h-8 mx-auto mb-2 text-purple-400" />
+              <div className="text-sm font-medium text-white">
+                Satisfaction Guaranteed
+              </div>
+              <div className="text-xs text-gray-300">100% Secure</div>
             </div>
           </div>
-        )}
+
+          {/* Support Contact */}
+          <div className="text-center pt-6">
+            <p className="text-gray-300 text-sm mb-3">
+              Have questions or need support?
+            </p>
+            <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700">
+              <div className="flex items-center justify-center space-x-3 text-gray-300">
+                <Phone className="w-5 h-5" />
+                <div>
+                  <div className="text-sm font-medium">
+                    Call for Inquiries
+                  </div>
+                  <div className="text-lg font-bold text-white">
+                    07030151874
+                  </div>
+                  <div className="text-xs text-gray-400">
+                    Support & Questions Only
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Urgency */}
+          <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-lg p-4 text-center mt-8">
+            <div className="flex items-center justify-center space-x-2 mb-2">
+              <Clock className="w-5 h-5" />
+              <span className="font-bold">Limited Time Offer</span>
+            </div>
+            <p className="text-sm text-orange-100">
+              Special launch price ends soon. Order now to secure your
+              discount!
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

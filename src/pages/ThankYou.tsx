@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -11,10 +12,42 @@ import {
   MessageCircle,
   Gift,
 } from "lucide-react";
+import WhatsAppButton from "@/components/ui/whatsapp-button";
+import {
+  trackOrderSubmission,
+  getPriceFromPackage,
+  trackPageView,
+} from "@/lib/tracking";
 
 const ThankYou = () => {
   const location = useLocation();
   const orderData = location.state || {};
+
+  // Track purchase event on page load (backup tracking)
+  useEffect(() => {
+    // Track page view for thank you page
+    trackPageView("/thank-you");
+
+    if (orderData.packageType && orderData.customerName) {
+      const orderValue = orderData.price
+        ? parseInt(orderData.price.replace(/[^0-9]/g, ""))
+        : getPriceFromPackage(orderData.packageType);
+
+      // Fire purchase event as backup
+      trackOrderSubmission({
+        value: orderValue,
+        currency: "NGN",
+        packageType: orderData.packageType,
+        customerName: orderData.customerName,
+      });
+
+      console.log("Purchase tracking fired on Thank You page:", {
+        value: orderValue,
+        packageType: orderData.packageType,
+        customerName: orderData.customerName,
+      });
+    }
+  }, [orderData]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 flex items-center justify-center p-4">
@@ -137,7 +170,13 @@ const ThankYou = () => {
               Need Help or Have Questions?
             </h3>
 
-            <div className="max-w-md mx-auto">
+            <div className="max-w-md mx-auto space-y-4">
+              {/* WhatsApp Confirmation Button */}
+              <WhatsAppButton
+                productName={orderData.packageType || "CleanMax Pro"}
+                className="w-full p-6 h-auto text-lg"
+              />
+
               {/* Phone Contact for Inquiries */}
               <Button
                 onClick={() => window.open("tel:+2347030151874", "_self")}

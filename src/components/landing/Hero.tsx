@@ -88,8 +88,7 @@ const Hero = () => {
                 }}
                 className="bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-700 hover:to-brand-800 text-white px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                Order Now - ₦20,500
-                <span className="ml-2 text-brand-200">2 Bottles</span>
+                Order Now
               </Button>
               <Button
                 variant="outline"
