@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Zap, Gauge, Leaf } from "lucide-react";
 import { trackVideoPlay, trackButtonClick } from "@/lib/tracking";
-import WhatsAppButton from "@/components/ui/whatsapp-button";
 
 const Hero = () => {
   const scrollToOrder = () => {
@@ -80,40 +79,30 @@ const Hero = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col gap-4">
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  onClick={() => {
-                    trackButtonClick("order_now_hero", "hero_section");
-                    scrollToOrder();
-                  }}
-                  className="bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-700 hover:to-brand-800 text-white px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  Order Now
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  onClick={() => {
-                    trackButtonClick("learn_more", "hero_section");
-                    document
-                      .getElementById("features")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="px-8 py-6 text-lg font-semibold border-2 hover:bg-gray-50"
-                >
-                  Learn More
-                </Button>
-              </div>
-
-              {/* WhatsApp CTA */}
-              <div className="flex justify-center">
-                <WhatsAppButton
-                  size="lg"
-                  className="px-8 py-4 text-base"
-                />
-              </div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button
+                size="lg"
+                onClick={() => {
+                  trackButtonClick("order_now_hero", "hero_section");
+                  scrollToOrder();
+                }}
+                className="bg-gradient-to-r from-brand-600 to-brand-700 hover:from-brand-700 hover:to-brand-800 text-white px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                Order Now
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => {
+                  trackButtonClick("learn_more", "hero_section");
+                  document
+                    .getElementById("features")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="px-8 py-6 text-lg font-semibold border-2 hover:bg-gray-50"
+              >
+                Learn More
+              </Button>
             </div>
 
             {/* Trust indicators */}
