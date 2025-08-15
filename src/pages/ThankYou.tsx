@@ -13,7 +13,11 @@ import {
   Gift,
 } from "lucide-react";
 import WhatsAppButton from "@/components/ui/whatsapp-button";
-import { trackOrderSubmission, getPriceFromPackage, trackPageView } from "@/lib/tracking";
+import {
+  trackOrderSubmission,
+  getPriceFromPackage,
+  trackPageView,
+} from "@/lib/tracking";
 
 const ThankYou = () => {
   const location = useLocation();
@@ -26,7 +30,7 @@ const ThankYou = () => {
 
     if (orderData.packageType && orderData.customerName) {
       const orderValue = orderData.price
-        ? parseInt(orderData.price.replace(/[^0-9]/g, ''))
+        ? parseInt(orderData.price.replace(/[^0-9]/g, ""))
         : getPriceFromPackage(orderData.packageType);
 
       // Fire purchase event as backup
@@ -37,10 +41,10 @@ const ThankYou = () => {
         customerName: orderData.customerName,
       });
 
-      console.log('Purchase tracking fired on Thank You page:', {
+      console.log("Purchase tracking fired on Thank You page:", {
         value: orderValue,
         packageType: orderData.packageType,
-        customerName: orderData.customerName
+        customerName: orderData.customerName,
       });
     }
   }, [orderData]);
