@@ -114,6 +114,18 @@ export const trackFormStart = () => {
   trackEvent("begin_checkout", {
     content_category: "automotive_cleaner",
   });
+
+  // Facebook specific InitiateCheckout event
+  if (
+    TRACKING_CONFIG.facebookPixel.enabled &&
+    typeof window !== "undefined" &&
+    (window as any).fbq
+  ) {
+    (window as any).fbq("track", "InitiateCheckout", {
+      content_category: "automotive_cleaner",
+      content_name: "CleanMax Pro Order Form",
+    });
+  }
 };
 
 export const trackFormStep = (step: string) => {
