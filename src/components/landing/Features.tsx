@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Zap,
   Gauge,
@@ -10,6 +11,8 @@ import {
   CheckCircle,
   ArrowRight,
 } from "lucide-react";
+import WhatsAppButton from "@/components/ui/whatsapp-button";
+import { trackButtonClick } from "@/lib/tracking";
 
 const Features = () => {
   const features = [
@@ -149,7 +152,7 @@ const Features = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-6 text-center">
+            <div className="grid grid-cols-2 gap-6 text-center mb-6">
               <div>
                 <div className="text-4xl font-bold mb-2">50%</div>
                 <div className="text-brand-100">Emission Reduction</div>
@@ -167,6 +170,21 @@ const Features = () => {
                 <div className="text-brand-100">Satisfaction Rate</div>
               </div>
             </div>
+
+            {/* CTA in stats section */}
+            <div className="text-center">
+              <Button
+                size="lg"
+                onClick={() => {
+                  trackButtonClick("order_now_stats", "features_section");
+                  const element = document.getElementById("order-section");
+                  element?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="bg-white text-brand-600 hover:bg-gray-100 px-6 py-3 font-semibold"
+              >
+                Experience These Results
+              </Button>
+            </div>
           </div>
         </div>
 
@@ -182,10 +200,24 @@ const Features = () => {
               <h3 className="text-3xl font-bold mb-4">
                 Protect Our Environment
               </h3>
-              <p className="text-xl text-green-100 max-w-2xl">
+              <p className="text-xl text-green-100 max-w-2xl mb-6">
                 Reduce harmful emissions and contribute to a cleaner planet with
                 every drive
               </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Button
+                  size="lg"
+                  onClick={() => {
+                    trackButtonClick("order_now_features", "features_section");
+                    const element = document.getElementById("order-section");
+                    element?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="bg-white text-green-800 hover:bg-gray-100 px-6 py-3 font-semibold"
+                >
+                  Start Reducing Emissions Today
+                </Button>
+                <WhatsAppButton className="bg-green-600 hover:bg-green-700" />
+              </div>
             </div>
           </div>
         </div>
