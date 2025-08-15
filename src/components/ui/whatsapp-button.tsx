@@ -30,13 +30,10 @@ const WhatsAppButton = ({
     >
       <div className="text-center">
         <div className="text-base font-semibold">
-          📲 Get Instant Confirmation on WhatsApp
+          📲 Confirm Order on WhatsApp
         </div>
         <div className="text-xs mt-1 leading-tight opacity-90">
-          Click to avoid waiting for our call — our team will confirm
-          <br className="hidden sm:block" />
-          <span className="sm:hidden"> </span>and start processing your order
-          immediately
+          Skip the waiting — get instant order confirmation
         </div>
       </div>
     </Button>
