@@ -12,7 +12,7 @@ import {
   Gift,
 } from "lucide-react";
 import WhatsAppButton from "@/components/ui/whatsapp-button";
-import { trackOrderSubmission, getPriceFromPackage } from "@/lib/tracking";
+import { trackOrderSubmission, getPriceFromPackage, trackPageView } from "@/lib/tracking";
 
 const ThankYou = () => {
   const location = useLocation();
@@ -196,7 +196,7 @@ const ThankYou = () => {
                 <li>
                   • Keep your phone number accessible for delivery coordination
                 </li>
-                <li>• Ensure someone is available to receive the package</li>
+                <li>�� Ensure someone is available to receive the package</li>
                 <li>• Have your payment ready (Cash, Bank Transfer, or POS)</li>
                 <li>• Contact us immediately if your details change</li>
               </ul>
