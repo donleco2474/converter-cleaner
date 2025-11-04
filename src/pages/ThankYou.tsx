@@ -177,6 +177,9 @@ const ThankYou = () => {
                 price={orderData.price}
                 className="w-full p-6 h-auto text-lg"
               />
+              <p className="text-sm text-gray-600 text-center">
+                To help us ship your package faster, you can confirm your order instantly on WhatsApp. It takes just one tap — your details will auto-fill automatically.
+              </p>
 
               {/* Phone Contact for Inquiries */}
               <Button
