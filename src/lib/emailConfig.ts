@@ -49,7 +49,7 @@ export const sendOrderEmail = async (orderData: any) => {
   // Import emailjs from '@emailjs/browser' and use this function
 
   const templateParams = {
-    to_email: "dlecomails@gmail.com",
+    to_email: "lincoorders@gmail.com,lincofortunez@gmail.com",
     ...orderData,
   };
 
