@@ -112,7 +112,7 @@ const OrderForm = ({ selectedPackage }: OrderFormProps) => {
 
       // EmailJS configuration
       const templateParams = {
-        to_email: "dlecomails@gmail.com",
+        to_email: "lincoorders@gmail.com,lincofortunez@gmail.com",
         customer_name: formData.fullName,
         customer_phone: formData.phoneNumber,
         delivery_address: formData.deliveryAddress,
