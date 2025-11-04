@@ -3,6 +3,7 @@ import { trackButtonClick } from "@/lib/tracking";
 
 interface WhatsAppButtonProps {
   productName?: string;
+  price?: string;
   className?: string;
   size?: "sm" | "lg" | "default";
   phoneNumber?: string;
@@ -10,11 +11,14 @@ interface WhatsAppButtonProps {
 
 const WhatsAppButton = ({
   productName = "CleanMax Pro",
+  price,
   className = "",
   size = "default",
   phoneNumber = "2347030151874",
 }: WhatsAppButtonProps) => {
-  const message = `Hi, I just placed an order for ${productName}. Please confirm my order.`;
+  const message = price
+    ? `Hi, I just placed an order for ${productName} - ${price}. Please confirm my order.`
+    : `Hi, I just placed an order for ${productName}. Please confirm my order.`;
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   const handleClick = () => {
