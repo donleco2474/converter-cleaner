@@ -174,6 +174,7 @@ const ThankYou = () => {
               {/* WhatsApp Confirmation Button */}
               <WhatsAppButton
                 productName={orderData.packageType || "CleanMax Pro"}
+                price={orderData.price}
                 className="w-full p-6 h-auto text-lg"
               />
 
@@ -223,7 +224,7 @@ const ThankYou = () => {
 
           <Button
             onClick={() => {
-              const shareText = `I just ordered CleanMax Pro Catalytic Converter Cleaner! 🚗✨ Reduces emissions by 50% and improves fuel efficiency. Check it out!`;
+              const shareText = `I just ordered CleanMax Pro Catalytic Converter Cleaner! ��✨ Reduces emissions by 50% and improves fuel efficiency. Check it out!`;
               if (navigator.share) {
                 navigator.share({
                   title: "CleanMax Pro Order",
