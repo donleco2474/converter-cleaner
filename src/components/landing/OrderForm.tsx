@@ -52,6 +52,12 @@ const OrderForm = ({ selectedPackage }: OrderFormProps) => {
   });
 
   const packages = [
+    {
+      name: "Ultimate Treatment (8 bottles + 1 free)",
+      bottles: 9,
+      price: "₦75,000",
+      featured: true,
+    },
     { name: "Premium Treatment (6 bottles)", bottles: 6, price: "₦55,500" },
     {
       name: "Complete Treatment (4 bottles)",
