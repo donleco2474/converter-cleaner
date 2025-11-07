@@ -52,14 +52,14 @@ const OrderForm = ({ selectedPackage }: OrderFormProps) => {
   });
 
   const packages = [
-    { name: "Premium Package (6 bottles)", bottles: 6, price: "₦55,500" },
+    { name: "Premium Treatment (6 bottles)", bottles: 6, price: "₦55,500" },
     {
-      name: "Complete Package (4 bottles)",
+      name: "Complete Treatment (4 bottles)",
       bottles: 4,
       price: "₦37,000",
       recommended: true,
     },
-    { name: "Basic Package (2 bottles)", bottles: 2, price: "₦20,500" },
+    { name: "Basic Treatment (2 bottles)", bottles: 2, price: "₦20,500" },
   ];
 
   const paymentMethods = [
