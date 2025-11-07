@@ -285,7 +285,8 @@ const OrderForm = ({ selectedPackage }: OrderFormProps) => {
               Select Package *
             </Label>
             <p className="text-xs text-gray-600 -mt-1">
-              Most customers choose Complete or Premium, but all options deliver results. Pick what fits your budget and goals.
+              Most customers choose Complete or Premium, but all options deliver
+              results. Pick what fits your budget and goals.
             </p>
             <Select
               value={formData.packageType}
