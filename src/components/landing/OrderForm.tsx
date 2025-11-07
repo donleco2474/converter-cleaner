@@ -293,11 +293,16 @@ const OrderForm = ({ selectedPackage }: OrderFormProps) => {
                 <SelectValue placeholder="Choose your package" />
               </SelectTrigger>
               <SelectContent>
-                {packages.map((pkg) => (
+                {packages.map((pkg: any) => (
                   <SelectItem key={pkg.name} value={pkg.name}>
                     <div className="flex items-center justify-between w-full">
                       <div className="flex items-center">
                         <span>{pkg.name}</span>
+                        {pkg.featured && (
+                          <span className="ml-2 bg-purple-100 text-purple-800 text-xs px-2 py-0.5 rounded-full font-bold">
+                            BEST VALUE
+                          </span>
+                        )}
                         {pkg.recommended && (
                           <span className="ml-2 bg-orange-100 text-orange-800 text-xs px-2 py-0.5 rounded-full font-bold">
                             RECOMMENDED
