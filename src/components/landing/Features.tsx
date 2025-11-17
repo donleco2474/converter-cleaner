@@ -126,19 +126,19 @@ const Features = () => {
 
         {/* Visual Benefits Section */}
         <div className="mt-20 grid lg:grid-cols-2 gap-12 items-center">
-          {/* Engine Image */}
+          {/* Product Benefits Image */}
           <div className="relative">
-            <img
-              src="https://images.pexels.com/photos/8478223/pexels-photo-8478223.jpeg"
-              alt="Professional mechanic working on car engine"
-              className="rounded-2xl shadow-2xl w-full h-80 object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent rounded-2xl" />
-            <div className="absolute bottom-6 left-6 text-white">
-              <h3 className="text-xl font-bold mb-2">Professional Results</h3>
-              <p className="text-sm text-gray-200">
-                Deep engine cleaning without disassembly
-              </p>
+            <div className="bg-gradient-to-br from-white to-gray-100 rounded-3xl p-4 shadow-2xl">
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img
+                  src="https://i.imgur.com/kyCL4Ag.png"
+                  alt="CleanMax Pro before and after engine cleaning demonstration with results"
+                  className="rounded-xl w-full h-auto object-cover"
+                />
+              </div>
+            </div>
+            <div className="absolute -bottom-4 left-6 bg-gradient-to-r from-brand-600 to-green-600 text-white rounded-full px-4 py-2 shadow-lg">
+              <div className="text-xs font-bold">Proven Results</div>
             </div>
           </div>
 
