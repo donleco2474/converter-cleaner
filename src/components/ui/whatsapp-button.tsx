@@ -7,6 +7,10 @@ interface WhatsAppButtonProps {
   className?: string;
   size?: "sm" | "lg" | "default";
   phoneNumber?: string;
+  fullName?: string;
+  customerPhone?: string;
+  deliveryAddress?: string;
+  additionalNotes?: string;
 }
 
 const WhatsAppButton = ({
@@ -15,10 +19,22 @@ const WhatsAppButton = ({
   className = "",
   size = "default",
   phoneNumber = "2349136568855",
+  fullName,
+  customerPhone,
+  deliveryAddress,
+  additionalNotes,
 }: WhatsAppButtonProps) => {
-  const message = price
-    ? `Hi, I just placed an order for ${productName} - ${price}. Please confirm my order.`
-    : `Hi, I just placed an order for ${productName}. Please confirm my order.`;
+  const buildMessage = () => {
+    if (fullName && customerPhone && deliveryAddress) {
+      const message = `*Order Confirmation Request*\n\n*Customer Name:* ${fullName}\n*Phone Number:* ${customerPhone}\n*Delivery Address:* ${deliveryAddress}\n*Package:* ${productName}${price ? ` - ${price}` : ""}\n${additionalNotes ? `*Additional Notes:* ${additionalNotes}\n` : ""}\nPlease confirm my order.`;
+      return message;
+    }
+    return price
+      ? `Hi, I just placed an order for ${productName} - ${price}. Please confirm my order.`
+      : `Hi, I just placed an order for ${productName}. Please confirm my order.`;
+  };
+
+  const message = buildMessage();
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   const handleClick = () => {
