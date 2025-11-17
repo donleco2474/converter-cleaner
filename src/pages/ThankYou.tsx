@@ -175,6 +175,10 @@ const ThankYou = () => {
               <WhatsAppButton
                 productName={orderData.packageType || "CleanMax Pro"}
                 price={orderData.price}
+                fullName={orderData.fullName}
+                customerPhone={orderData.phoneNumber}
+                deliveryAddress={orderData.deliveryAddress}
+                additionalNotes={orderData.additionalNotes}
                 className="w-full p-6 h-auto text-lg"
               />
               <p className="text-sm text-gray-600 text-center">
