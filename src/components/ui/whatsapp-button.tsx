@@ -14,7 +14,7 @@ const WhatsAppButton = ({
   price,
   className = "",
   size = "default",
-  phoneNumber = "2347030151874",
+  phoneNumber = "2349136568855",
 }: WhatsAppButtonProps) => {
   const message = price
     ? `Hi, I just placed an order for ${productName} - ${price}. Please confirm my order.`
