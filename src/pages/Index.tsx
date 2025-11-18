@@ -1,5 +1,6 @@
 import Hero from "@/components/landing/Hero";
 import Features from "@/components/landing/Features";
+import HowItWorks from "@/components/landing/HowItWorks";
 import Testimonials from "@/components/landing/Testimonials";
 import OrderSection from "@/components/landing/OrderSection";
 
@@ -8,6 +9,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Hero />
       <Features />
+      <HowItWorks />
       <Testimonials />
       <OrderSection />
 
@@ -25,7 +27,7 @@ const Index = () => {
                 thousands of satisfied customers.
               </p>
               <div className="mt-6 space-y-2">
-                <div className="text-sm text-gray-400">📞 07030151874</div>
+                <div className="text-sm text-gray-400">📞 09136568855</div>
                 <div className="text-sm text-gray-400">
                   📧 info@cleanmaxpro.ng
                 </div>

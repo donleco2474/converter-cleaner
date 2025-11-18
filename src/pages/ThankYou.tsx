@@ -175,6 +175,10 @@ const ThankYou = () => {
               <WhatsAppButton
                 productName={orderData.packageType || "CleanMax Pro"}
                 price={orderData.price}
+                fullName={orderData.fullName}
+                customerPhone={orderData.phoneNumber}
+                deliveryAddress={orderData.deliveryAddress}
+                additionalNotes={orderData.additionalNotes}
                 className="w-full p-6 h-auto text-lg"
               />
               <p className="text-sm text-gray-600 text-center">
@@ -183,14 +187,14 @@ const ThankYou = () => {
 
               {/* Phone Contact for Inquiries */}
               <Button
-                onClick={() => window.open("tel:+2347030151874", "_self")}
+                onClick={() => window.open("tel:+2349136568855", "_self")}
                 className="w-full bg-brand-600 hover:bg-brand-700 text-white p-6 h-auto"
               >
                 <div className="flex items-center justify-center space-x-3">
                   <Phone className="w-6 h-6" />
                   <div className="text-center">
                     <div className="font-medium text-lg">Call for Support</div>
-                    <div className="text-sm text-brand-100">07030151874</div>
+                    <div className="text-sm text-brand-100">09136568855</div>
                     <div className="text-xs text-brand-200">
                       Questions & Inquiries
                     </div>

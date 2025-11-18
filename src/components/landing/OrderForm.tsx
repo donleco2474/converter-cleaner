@@ -196,8 +196,12 @@ const OrderForm = ({ selectedPackage }: OrderFormProps) => {
         navigate("/thank-you", {
           state: {
             customerName: formData.fullName,
+            fullName: formData.fullName,
+            phoneNumber: formData.phoneNumber,
+            deliveryAddress: formData.deliveryAddress,
             packageType: formData.packageType,
             price: selectedPkg?.price,
+            additionalNotes: formData.additionalNotes,
           },
         });
       }, 2000);
