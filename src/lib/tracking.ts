@@ -151,6 +151,24 @@ export const trackFormStart = () => {
       content_name: "CleanMax Pro Order Form",
     });
   }
+
+  // TikTok InitiateCheckout event
+  if (
+    TRACKING_CONFIG.tiktokPixel.enabled &&
+    typeof window !== "undefined" &&
+    (window as any).ttq
+  ) {
+    (window as any).ttq.track("InitiateCheckout", {
+      contents: [
+        {
+          content_id: "converter_cleaner",
+          content_type: "product",
+          content_name: "CleanMax Pro Order Form",
+        },
+      ],
+      content_category: "automotive_cleaner",
+    });
+  }
 };
 
 export const trackFormStep = (step: string) => {
