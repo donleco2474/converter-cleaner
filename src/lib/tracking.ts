@@ -20,6 +20,12 @@ export const TRACKING_CONFIG = {
     pixelId: "470683655547090", // Replace with your Facebook Pixel ID
     enabled: true, // Set to true when you add your pixel ID
   },
+
+  // TikTok Pixel
+  tiktokPixel: {
+    pixelId: "D4JNJ4RC77U4IAHDMAP0",
+    enabled: true,
+  },
 };
 
 // Google Analytics 4 Functions
@@ -106,6 +112,25 @@ export const trackOrderSubmission = (orderData: {
     (window as any).fbq
   ) {
     (window as any).fbq("track", "Purchase", eventData);
+  }
+
+  // TikTok Pixel Purchase Event
+  if (
+    TRACKING_CONFIG.tiktokPixel.enabled &&
+    typeof window !== "undefined" &&
+    (window as any).ttq
+  ) {
+    (window as any).ttq.track("Purchase", {
+      contents: [
+        {
+          content_id: orderData.packageType.toLowerCase().replace(/\s+/g, "_"),
+          content_type: "product",
+          content_name: orderData.packageType,
+        },
+      ],
+      value: orderData.value,
+      currency: orderData.currency,
+    });
   }
 };
 
