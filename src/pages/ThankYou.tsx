@@ -23,9 +23,8 @@ const ThankYou = () => {
   const location = useLocation();
   const orderData = location.state || {};
 
-  // Track purchase event on page load (backup tracking)
+  // Track purchase event on page load
   useEffect(() => {
-    // Track page view for thank you page
     trackPageView("/thank-you");
 
     if (orderData.packageType && orderData.customerName) {
