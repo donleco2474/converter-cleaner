@@ -171,6 +171,23 @@ export const trackFormStep = (step: string) => {
         content_name: "CleanMax Pro Package Selected",
       });
     }
+
+    if (
+      TRACKING_CONFIG.tiktokPixel.enabled &&
+      typeof window !== "undefined" &&
+      (window as any).ttq
+    ) {
+      (window as any).ttq.track("AddToCart", {
+        contents: [
+          {
+            content_id: "converter_cleaner",
+            content_type: "product",
+            content_name: "CleanMax Pro Package Selected",
+          },
+        ],
+        content_category: "automotive_cleaner",
+      });
+    }
   }
 };
 
