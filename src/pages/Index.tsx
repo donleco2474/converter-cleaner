@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Hero from "@/components/landing/Hero";
 import Features from "@/components/landing/Features";
 import HowItWorks from "@/components/landing/HowItWorks";
@@ -5,6 +6,24 @@ import Testimonials from "@/components/landing/Testimonials";
 import OrderSection from "@/components/landing/OrderSection";
 
 const Index = () => {
+  useEffect(() => {
+    // TikTok Pixel ViewContent Event
+    const ttq = (window as any).ttq;
+    if (ttq && typeof ttq.track === 'function') {
+      ttq.track('ViewContent', {
+        contents: [
+          {
+            content_id: "converter_cleaner",
+            content_type: "product",
+            content_name: "Converter Cleaner"
+          }
+        ],
+        value: 16000,
+        currency: "NGN"
+      });
+    }
+  }, []);
+
   return (
     <div className="min-h-screen">
       <Hero />
