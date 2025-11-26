@@ -41,22 +41,6 @@ const ThankYou = () => {
         customerName: orderData.customerName,
       });
 
-      // TikTok Pixel Purchase Event
-      const ttq = (window as any).ttq;
-      if (ttq && typeof ttq.track === 'function') {
-        ttq.track('Purchase', {
-          contents: [
-            {
-              content_id: "converter_cleaner",
-              content_type: "product",
-              content_name: "Converter Cleaner"
-            }
-          ],
-          value: 16000,
-          currency: "NGN"
-        });
-      }
-
       console.log("Purchase tracking fired on Thank You page:", {
         value: orderValue,
         packageType: orderData.packageType,
