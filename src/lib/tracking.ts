@@ -190,6 +190,27 @@ export const trackButtonClick = (buttonName: string, location: string) => {
   });
 };
 
+// Track ViewContent event for TikTok
+export const trackViewContent = (packageName: string = "CleanMax Pro") => {
+  if (
+    TRACKING_CONFIG.tiktokPixel.enabled &&
+    typeof window !== "undefined" &&
+    (window as any).ttq
+  ) {
+    (window as any).ttq.track("ViewContent", {
+      contents: [
+        {
+          content_id: "converter_cleaner",
+          content_type: "product",
+          content_name: packageName,
+        },
+      ],
+      value: getPriceFromPackage(packageName) || 16000,
+      currency: "NGN",
+    });
+  }
+};
+
 // Price mapping for conversion tracking
 export const PACKAGE_PRICES = {
   "Basic Package (2 bottles)": 20500,
