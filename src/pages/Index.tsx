@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { trackViewContent, trackPageView } from "@/lib/tracking";
 import Hero from "@/components/landing/Hero";
 import Features from "@/components/landing/Features";
 import HowItWorks from "@/components/landing/HowItWorks";
@@ -7,21 +8,8 @@ import OrderSection from "@/components/landing/OrderSection";
 
 const Index = () => {
   useEffect(() => {
-    // TikTok Pixel ViewContent Event
-    const ttq = (window as any).ttq;
-    if (ttq && typeof ttq.track === 'function') {
-      ttq.track('ViewContent', {
-        contents: [
-          {
-            content_id: "converter_cleaner",
-            content_type: "product",
-            content_name: "Converter Cleaner"
-          }
-        ],
-        value: 16000,
-        currency: "NGN"
-      });
-    }
+    trackPageView("/");
+    trackViewContent("CleanMax Pro");
   }, []);
 
   return (
